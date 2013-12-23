@@ -13,5 +13,8 @@
 
 Route::get('/', 'PostController@index');
 
-Route::get('blog/{category}', 'PostController@listcategory');
-Route::get('blog/{category}/{post}', 'PostController@show');
+Route::group(array('prefix' => 'blog'), function()
+{
+    Route::get('{category}', 'PostController@listcategory');
+    Route::get('{category}/{post}', 'PostController@show');
+});

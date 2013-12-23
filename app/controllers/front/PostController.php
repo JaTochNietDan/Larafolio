@@ -2,9 +2,12 @@
 
 class PostController extends FrontController
 {
-    function index()
+    function index($c = null)
     {
-        $posts = Post::take(10)->get();
+        if($c)
+            $posts = $c->posts()->take(Cache::get('posts-page', 10))->get();
+        else
+            $posts = Post::take(Cache::get('posts-page', 10))->get();
         
         $data = array('posts' => $posts);
         
@@ -32,10 +35,6 @@ class PostController extends FrontController
         if(!$c)
             return Redirect::to('/')->withErrors(array('errors' => 'Category not found!'));
         
-        $posts = $c->posts()->take(10)->get();
-        
-        $data = array('posts' => $posts);
-        
-        $this->layout->content = View::make('front/posts/index', $data);
+        $this->index($c);
     }
 }

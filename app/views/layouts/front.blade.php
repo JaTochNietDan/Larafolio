@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>
-            @yield('title')
+            @yield('title', Cache::get('site-title'))
         </title>
         <link href="/css/bootstrap.css" rel="stylesheet">
         <link href="/css/bootstrap-responsive.css" rel="stylesheet">
