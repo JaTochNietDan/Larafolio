@@ -5,9 +5,9 @@ class PostController extends FrontController
     function index($c = null)
     {
         if($c)
-            $posts = $c->posts()->take(Cache::get('posts-page', 10))->get();
+            $posts = $c->posts()->take(Cache::get('posts-page'))->get();
         else
-            $posts = Post::take(Cache::get('posts-page', 10))->get();
+            $posts = Post::take(Cache::get('posts-page'))->get();
         
         $data = array('posts' => $posts);
         
@@ -26,6 +26,12 @@ class PostController extends FrontController
         if(!$p)
             return Redirect::to(action('PostController@listcategory', $category_link))
                    ->withErrors(array('errors' => 'Post not found!'));
+                   
+        $data = array(
+            'post' => $p  
+        );
+                   
+        $this->layout->content = View::make('front/posts/show', $data);
     }
     
     function listcategory($category_link)
