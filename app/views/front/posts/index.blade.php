@@ -8,7 +8,7 @@
             </h2>
             <em>
                 in {{ link_to_action('PostController@listcategory', $post->category->title, $post->category->link) }}
-                at {{ $post->created_at }}
+                {{ $post->created_at->format(Cache::get('date-format')) }}
             </em>
             <p></p><p>{{ $post->excerpt }}</p>
         @endforeach
