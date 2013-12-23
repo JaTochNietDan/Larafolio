@@ -41,24 +41,23 @@
             </nav>
 
             <div id="page-wrapper">
-            
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1>
-                        @yield('title', 'Dashboard')
-                    </h1>
+                @include('admin.messages')
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>
+                            @yield('title', 'Dashboard')
+                        </h1>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-lg-12">
+                        @yield('content')
+                    </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    @yield('content')
-                </div>
-            </div>
-        </div> 
-    </div>
-
-    <script src="/back/js/jquery-1.10.2.js"></script>
-    <script src="/back/js/bootstrap.js"></script>
-  </body>
+        </div>
+        <script src="/back/js/jquery-1.10.2.js"></script>
+        <script src="/back/js/bootstrap.js"></script>
+    </body>
 </html>
