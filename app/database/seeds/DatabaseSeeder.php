@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder {
 			'excerpt' => 'First excerpt'
 		));
 		
-		// $this->call('UserTableSeeder');
+		$this->call('CacheSeeder');
 	}
 
 }
