@@ -5,7 +5,7 @@
         </div>
         <div class="panel-body">
             {{ Form::open(array('route' => 'admin.post.store', 'class' => 'form-horizontal')) }}
-                @include('admin.posts.form')
+                @include('admin.posts.form', array('post' => new Post()))
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         {{ Form::submit('Create', array('class' => 'btn btn-primary')) }}

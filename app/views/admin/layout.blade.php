@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown active">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> Posts <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('admin.post.index') }}">All Posts</a></li>
@@ -57,8 +57,9 @@
                 </div>
             </div>
         </div>
-        <script src="/back/js/jquery-1.10.2.js"></script>
+        <script src="/back/js/jquery.js"></script>
         <script src="/back/js/jquery-ujs.js"></script>
         <script src="/back/js/bootstrap.js"></script>
+        @yield('editor')
     </body>
 </html>

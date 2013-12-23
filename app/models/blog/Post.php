@@ -24,5 +24,5 @@ class Post extends Eloquent
     
 	protected $table = 'posts';
 	
-	protected $fillable = array('title', 'published', 'content');
+	protected $fillable = array('title', 'published', 'content', 'category_id');
 }

@@ -32,7 +32,7 @@ class APostController extends AdminController
     {
         $rules = array(
             'title' => 'min:3|max:20|required|unique:posts',
-            'category' => 'required|exists:categories,id'
+            'category_id' => 'required|exists:categories,id'
         );
         
         $valid = Validator::make(Input::all(), $rules);
@@ -40,8 +40,44 @@ class APostController extends AdminController
         if($valid->fails())
             return Redirect::to(route('admin.post.create'))->withErrors($valid)->withInput(Input::all());
         
-        $p = Category::find(Input::get('category'))->posts()->create(Input::except(array('_token', 'category')));
+        $p = Post::create(Input::all());
         
         return Redirect::to(route('admin.post.index'))->with('success', 'Post created!');
+    }
+    
+    function edit($id)
+    {
+        $p = Post::find($id);
+        
+        if(!$p)
+            return Redirect::to(route('admin.post.index'))->withErrors(array('errors' => 'Post not found!'));
+        
+        $data = array(
+            'post' => $p  
+        );
+        
+        $this->layout->content = View::make('admin.posts.edit', $data);
+    }
+    
+    function update($id)
+    {
+        $rules = array(
+            'title' => 'min:3|max:20|required|unique:posts,title,'.$id,
+            'category_id' => 'required|exists:categories,id'
+        );
+        
+        $valid = Validator::make(Input::all(), $rules);
+        
+        if($valid->fails())
+            return Redirect::to(route('admin.post.edit', $id))->withErrors($valid)->withInput(Input::all());
+        
+        $p = Post::find($id);
+        
+        if(!$p)
+            return Redirect::to(route('admin.post.index'))->withErrors(array('errors' => 'Post not found!'));
+        
+        $p->update(Input::all());
+        
+        return Redirect::to(route('admin.post.index'))->with('success', 'Post saved!');
     }
 }

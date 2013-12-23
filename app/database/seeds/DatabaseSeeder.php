@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder {
 			'title' => 'Technology'	
 		));
 		
+		Category::create(array(
+			'title' => 'PHP'
+		));
+		
 		$c->posts()->create(array(
 			'title' => 'Hello World',
 			'content' => 'My first post!',
