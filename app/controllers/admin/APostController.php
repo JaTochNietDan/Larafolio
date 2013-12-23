@@ -31,8 +31,8 @@ class APostController extends AdminController
     function store()
     {
         $rules = array(
-            'title' => 'min:3|max:20|required',
-            'category' => 'required'
+            'title' => 'min:3|max:20|required|unique:posts',
+            'category' => 'required|exists:categories,id'
         );
         
         $valid = Validator::make(Input::all(), $rules);
@@ -40,12 +40,7 @@ class APostController extends AdminController
         if($valid->fails())
             return Redirect::to(route('admin.post.create'))->withErrors($valid)->withInput(Input::all());
         
-        $c = Category::find(Input::get('category'));
-        
-        if(!$c)
-            return Redirect::to(route('admin.post.create'))->withErrors(array('errors' => 'Invalid category specified'))->withInput(Input::all());
-        
-        $p = $c->posts()->create(Input::except(array('_token', 'category')));
+        $p = Category::find(Input::get('category'))->posts()->create(Input::except(array('_token', 'category')));
         
         return Redirect::to(route('admin.post.index'))->with('success', 'Post created!');
     }

@@ -58,6 +58,7 @@
             </div>
         </div>
         <script src="/back/js/jquery-1.10.2.js"></script>
+        <script src="/back/js/jquery-ujs.js"></script>
         <script src="/back/js/bootstrap.js"></script>
     </body>
 </html>
