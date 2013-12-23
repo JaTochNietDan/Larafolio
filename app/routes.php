@@ -20,3 +20,12 @@ Route::group(array('prefix' => 'blog'), function()
     
     Route::get('', 'PostController@index');
 });
+
+Route::get('login', 'LoginController@index');
+Route::post('login', 'LoginController@login');
+Route::get('logout', 'LoginController@logout');
+
+Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
+{
+    Route::get('', 'AdminController@dash');
+});

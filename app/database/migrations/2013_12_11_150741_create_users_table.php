@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration {
             
             $t->string('email');
             $t->string('password');
+			
             $t->timestamp('updated_at');
             $t->timestamp('created_at');
         });   
