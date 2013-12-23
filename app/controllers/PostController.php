@@ -10,4 +10,9 @@ class PostController extends FrontController
         
         $this->layout->content = View::make('front/posts/index', $data);
     }
+    
+    function show()
+    {
+        return 'Showtime!';
+    }
 }

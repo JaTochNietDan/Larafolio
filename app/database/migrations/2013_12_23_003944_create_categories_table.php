@@ -16,6 +16,7 @@ class CreateCategoriesTable extends Migration {
             $t->increments('id');
             
             $t->string('title')->unique();
+			$t->string('link')->unique();
             
             $t->timestamp('updated_at');
             $t->timestamp('created_at');

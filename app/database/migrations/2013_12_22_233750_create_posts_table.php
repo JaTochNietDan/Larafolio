@@ -16,6 +16,7 @@ class CreatePostsTable extends Migration {
             $t->increments('id');
             
             $t->string('title')->unique();
+			$t->string('link')->unique();
             $t->text('content');
             $t->string('excerpt');
             

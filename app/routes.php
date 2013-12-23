@@ -11,4 +11,7 @@
 |
 */
 
-Route::resource('/', 'PostController');
+Route::get('/', 'PostController@index');
+
+
+Route::get('blog/{category}/{post}', 'PostController@show');
