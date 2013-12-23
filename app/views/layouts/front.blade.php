@@ -19,7 +19,8 @@
 					<a class="brand" href="/">JaTochNietDan</a>
 					<div class="nav-collapse collapse">
 						<ul class="nav">
-							<li class="active"><a href="/"><i class="icon-home"></i> Blog</a></li><li><a href="/projects"><i class="icon-briefcase"></i> Projects</a></li><li><a href="/page/about"><i class="icon-user"></i> About</a></li><li><a href="/action/contact"><i class="icon-envelope"></i> Contact</a></li>						</ul>
+							@include('front.menu')
+						</ul>
 					</div>
 				</div>
 			</div>
