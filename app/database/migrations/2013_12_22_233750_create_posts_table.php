@@ -19,6 +19,8 @@ class CreatePostsTable extends Migration {
 			$t->string('link')->unique();
             $t->text('content');
             $t->string('excerpt');
+			
+			$t->boolean('published')->default(false);
             
             $t->smallInteger('category_id');
             

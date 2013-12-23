@@ -13,7 +13,7 @@ class Post extends Eloquent
 		
 		Post::saving(function($p)
 		{
-			
+			$p->excerpt = $p->content;
 		});
 	}
 	
@@ -22,10 +22,7 @@ class Post extends Eloquent
         return $this->belongsTo('Category');
     }
     
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
 	protected $table = 'posts';
+	
+	protected $fillable = array('title', 'published', 'content');
 }
