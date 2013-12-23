@@ -17,4 +17,6 @@ Route::group(array('prefix' => 'blog'), function()
 {
     Route::get('{category}', 'PostController@listcategory');
     Route::get('{category}/{post}', 'PostController@show');
+    
+    Route::get('', 'PostController@index');
 });
