@@ -3,9 +3,9 @@
         <title>
             @yield('title', Cache::get('site-title'))
         </title>
-        <link href="/css/bootstrap.css" rel="stylesheet">
-        <link href="/css/bootstrap-responsive.css" rel="stylesheet">
-        <link href="/css/navbar.css" rel="stylesheet">
+        <link href="/front/css/bootstrap.css" rel="stylesheet">
+        <link href="/front/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="/front/css/navbar.css" rel="stylesheet">
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
