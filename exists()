@@ -1,0 +1,1 @@
+User::where('email', '=', 'demo@demo.com')-;

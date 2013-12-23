@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="91f62d0c-bf2f-46ea-a3d1-e31ed6b50945" kpf_version="5" name="Portfolio.komodoproject">
+<preference-set idref="91f62d0c-bf2f-46ea-a3d1-e31ed6b50945" id="project" preftype="project">
+  <string id="import_dirname">D:\Dropbox\WorkArea\Languages\PHP\Laravel\Larafolio</string>
+<preference-set id="languages">
+<preference-set id="languages/PHP">
+  <long id="tabWidth">4</long>
+</preference-set>
+</preference-set>
+</preference-set>
+</project>
