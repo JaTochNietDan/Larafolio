@@ -26,7 +26,7 @@
 			</div>
 		</div>
         <div class="container">
-			@include('layouts.fronterrors')
+			@include('front.errors')
             <div class="row">
                 <div class="span9">
                     <div class="widget">				
