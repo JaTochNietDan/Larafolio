@@ -1,0 +1,3 @@
+@section('title')
+    Posts
+@stop

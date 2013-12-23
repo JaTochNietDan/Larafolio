@@ -28,4 +28,5 @@ Route::get('logout', 'LoginController@logout');
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
     Route::get('', 'AdminController@dash');
+    Route::resource('post', 'APostController');
 });
