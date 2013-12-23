@@ -10,3 +10,13 @@
         </div>
     </div>
 @endif
+
+@if(Session::get('success'))
+    <div class="row">
+		<div class="col-lg-12">
+            <div class="alert alert-success">
+            <b>Success: </b> {{ Session::get('success') }}
+            </div>
+        </div>
+    </div>
+@endif
