@@ -30,6 +30,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('', 'AdminController@dash');
     Route::resource('post', 'APostController');
     
-    Route::get('settings', array('as' => 'admin.settings', 'uses' => 'AdminController@showsettings'));
-    Route::post('settings/save', array('as' => 'admin.settings.save', 'uses' => 'AdminController@savesettings'));
+    Route::get('settings/general', array('as' => 'admin.settings.general', 'uses' => 'SettingsController@showgeneral'));
+    Route::post('settings/general', array('as' => 'admin.settings.general.save', 'uses' => 'SettingsController@savegeneral'));
+    Route::get('settings/menu', array('as' => 'admin.settings.menu', 'uses' => 'SettingsController@showmenu'));
+    Route::post('settings/menu', array('as' => 'admin.settings.menu.save', 'uses' => 'SettingsController@savemenu'));
 });

@@ -1,5 +1,5 @@
 @section('title')
-    Website Settings
+    General Settings
 @stop
 
 @section('content')
@@ -8,7 +8,7 @@
             <h3 class="panel-title"><i class="fa fa-edit"></i> Edit Settings</h3>
         </div>
         <div class="panel-body">
-            {{ Form::open(array('route' => array('admin.settings.save'), 'class' => 'form-horizontal')) }}
+            {{ Form::open(array('route' => array('admin.settings.general'), 'class' => 'form-horizontal')) }}
                 <div class="form-group">
                     {{ Form::label('Site Title', null, array('class' => 'col-sm-2 control-label')) }}
                     <div class="col-sm-10">

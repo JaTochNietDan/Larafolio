@@ -35,6 +35,6 @@
     </div>
 </div>
     
-@section('editor')
+@section('scripts')
     @include('admin.editor')
 @stop

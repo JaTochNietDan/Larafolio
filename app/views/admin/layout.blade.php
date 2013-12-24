@@ -36,7 +36,13 @@
                                 <li><a href="{{ route('admin.post.create') }}">Add New Post</a></li>
                             </ul>
                         </li>
-                        <li{{ Request::is('admin/settings') ? ' class="active"' : '' }}><a href="{{ route('admin.settings') }}"><i class="fa fa-wrench"></i> Settings</a></li>
+                        <li class="dropdown{{ Request::is('admin/settings*') ? ' open' : '' }}">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-wrench"></i> Settings <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ route('admin.settings.general') }}">General</a></li>
+                                <li><a href="{{ route('admin.settings.menu') }}">Menu</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     @include('admin.user')
                 </div>
@@ -62,6 +68,6 @@
         <script src="/back/js/jquery.js"></script>
         <script src="/back/js/jquery-ujs.js"></script>
         <script src="/back/js/bootstrap.js"></script>
-        @yield('editor')
+        @yield('scripts')
     </body>
 </html>

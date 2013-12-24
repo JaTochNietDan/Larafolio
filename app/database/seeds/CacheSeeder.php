@@ -13,7 +13,7 @@ class CacheSeeder extends Seeder
            array(
                 'title' => 'Blog',
                 'icon' => 'icon-home',
-                'link' => '/'
+                'link' => '/blog'
             )
         ));
     }
