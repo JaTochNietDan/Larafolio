@@ -25,7 +25,7 @@
 <div class="form-group">
     {{ Form::label('Published', null, array('class' => 'col-sm-2 control-label')) }}
     <div class="col-sm-10">
-        {{ Form::checkbox('published', $post->published)}}
+        {{ Form::checkbox('published', 1, $post->published)}}
     </div>
 </div>
 <div class="form-group">

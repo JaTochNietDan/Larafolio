@@ -5,9 +5,9 @@ class PostController extends FrontController
     function index($c = null)
     {
         if($c)
-            $posts = $c->posts()->take(Cache::get('posts-page'))->get();
+            $posts = $c->posts()->take(Cache::get('posts-page'))->where('published', '!=', 0)->get();
         else
-            $posts = Post::take(Cache::get('posts-page'))->get();
+            $posts = Post::take(Cache::get('posts-page'))->where('published', '!=', 0)->get();
         
         $data = array('posts' => $posts);
         
