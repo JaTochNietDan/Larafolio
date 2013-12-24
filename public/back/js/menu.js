@@ -38,11 +38,6 @@ $(document).ready(function()
         $('#table_menu > tbody.sortable').append(tr);
     });
     
-    $('.push_up').click(function()
-    {
-        
-    });
-    
     var fixHelperModified = function(e, tr) {
         var $originals = tr.children();
         var $helper = tr.clone();
