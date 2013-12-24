@@ -34,6 +34,12 @@
         {{ Form::textarea('content', $post->content, array('class' => 'form-control', 'id' => 'content'))}}
     </div>
 </div>
+<div class="form-group">
+    {{ Form::label('Excerpt (Optional)', null, array('class' => 'col-sm-2 control-label')) }}
+    <div class="col-sm-10">
+        {{ Form::textarea('excerpt', $post->excerpt, array('class' => 'form-control'))}}
+    </div>
+</div>
     
 @section('scripts')
     @include('admin.editor')

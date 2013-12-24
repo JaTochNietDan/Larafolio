@@ -9,7 +9,7 @@ class PostController extends FrontController
         else
             $posts = Post::take(Cache::get('posts-page'))->where('published', '!=', 0)->get();
         
-        $data = array('posts' => $posts);
+        $data = array('posts' => $posts, 'category' => $c);
         
         $this->layout->content = View::make('front/posts/index', $data);
     }

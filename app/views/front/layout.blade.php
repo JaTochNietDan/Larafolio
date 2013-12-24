@@ -29,6 +29,13 @@
 			<div class="container">
 				@include('front.errors')
 				<div class="row">
+					<div class="col-lg-12">
+						<ul class="breadcrumb">
+						@yield('breadcrumb')
+						</ul>
+					</div>
+				</div>
+				<div class="row">
 					@yield('content')
 					<div class="col-lg-3">
 						@yield('side')

@@ -15,10 +15,10 @@ Route::get('/', 'PostController@index');
 
 Route::group(array('prefix' => 'blog'), function()
 {
-    Route::get('{category}', 'PostController@listcategory');
+    Route::get('{category}', array('as' => 'blog.category', 'uses' => 'PostController@listcategory'));
     Route::get('{category}/{post}', 'PostController@show');
     
-    Route::get('', 'PostController@index');
+    Route::get('', array('as' => 'blog', 'uses' => 'PostController@index'));
 });
 
 Route::get('login', 'LoginController@index');

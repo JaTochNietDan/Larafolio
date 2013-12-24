@@ -13,7 +13,19 @@ class Post extends Eloquent
 		
 		Post::saving(function($p)
 		{
-			$p->excerpt = substr($p->content, 0, 255);
+			if(empty($p->excerpt))
+			{
+				$p->excerpt = substr(strip_tags($p->content), 0, 500);
+				
+				$index = strrpos($p->excerpt, '.');
+				
+				if($index !== false)
+					$p->excerpt = substr($p->excerpt, 0, $index + 1);
+					
+				$p->excerpt .= '...';
+			}
+			else
+				$p->excerpt = strip_tags($p->excerpt);
 		});
 	}
 	
@@ -24,5 +36,25 @@ class Post extends Eloquent
     
 	protected $table = 'posts';
 	
-	protected $fillable = array('title', 'published', 'content', 'category_id');
+	protected $fillable = array('title', 'published', 'content', 'category_id', 'excerpt');
+	
+	public static function update_rules($id)
+	{
+		return array(
+			'title' => 'min:3|max:20|required|unique:posts,title,'.$id,
+			'category_id' => 'required|exists:categories,id',
+			'published' => 'digitsbetween:0,1|integer',
+			'excerpt' => 'max:500'
+		);
+	}
+
+	public static function store_rules()
+	{
+		return array(
+			'title' => 'min:3|max:20|required|unique:posts',
+			'category_id' => 'required|exists:categories,id',
+			'published' => 'digitsbetween:0,1|integer',
+			'excerpt' => 'max:500'
+		);
+	}
 }

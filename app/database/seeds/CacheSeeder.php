@@ -12,7 +12,7 @@ class CacheSeeder extends Seeder
         Cache::forever('menu-items', array(
            array(
                 'title' => 'Blog',
-                'icon' => 'icon-home',
+                'icon' => 'home',
                 'link' => '/blog'
             )
         ));

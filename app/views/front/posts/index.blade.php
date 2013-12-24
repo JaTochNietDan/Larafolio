@@ -22,3 +22,12 @@
 @endif
 </div>
 @stop
+
+@section('breadcrumb')
+    @if(!empty($category))
+        <li><a href="{{ route('blog') }}">Blog</a></li>
+        <li class="active">{{ $category->title }}</li>
+    @else
+        <li class="active">Blog</li>
+    @endif
+@stop

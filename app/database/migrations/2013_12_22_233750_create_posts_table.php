@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration {
             $t->string('title')->unique();
 			$t->string('link')->unique();
             $t->text('content');
-            $t->string('excerpt');
+            $t->string('excerpt')->length(500);
 			
 			$t->boolean('published')->default(false);
             

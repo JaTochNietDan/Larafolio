@@ -11,8 +11,14 @@
         </div>
     
         <div class="panel-body">
-            <p></p><p>{{ $post->excerpt }}</p>
+            <p></p><p>{{ $post->content }}</p>
         </div>
     </div>
 </div>
+@stop
+
+@section('breadcrumb')
+    <li><a href="{{ route('blog') }}">Blog</a></li>
+    <li><a href="{{ route('blog.category', $post->category->link) }}">{{ $post->category->title }}</a></li>
+    <li class="active">{{ $post->title }}</li>
 @stop
