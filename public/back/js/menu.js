@@ -33,4 +33,31 @@ $(document).ready(function()
         
         $('#last_row').before(tr);
     });
+    
+    $('.push_up').click(function()
+    {
+        
+    });
+    
+    var fixHelperModified = function(e, tr) {
+        var $originals = tr.children();
+        var $helper = tr.clone();
+        $helper.children().each(function(index) {
+            $(this).width($originals.eq(index).width())
+        });
+        return $helper;
+    },
+    updateIndex = function(e, ui) {
+        $('tr', ui.item.parent()).each(function (i) {
+            $('tr td input').each(function(idx, e)
+            {
+                e = e.name.replace(/\[\d\]/, "[" + i + "]") 
+            });
+        });
+    };
+    
+    $("#table_menu tbody.sortable").sortable({
+        helper: fixHelperModified,
+        stop: updateIndex
+    }).disableSelection();
 });
