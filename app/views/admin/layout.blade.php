@@ -37,6 +37,7 @@
                             </ul>
                         </li>
                     </ul>
+                    @include('admin.user')
                 </div>
             </nav>
 

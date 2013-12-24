@@ -23,7 +23,7 @@ Route::group(array('prefix' => 'blog'), function()
 
 Route::get('login', 'LoginController@index');
 Route::post('login', 'LoginController@login');
-Route::get('logout', 'LoginController@logout');
+Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
