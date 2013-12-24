@@ -8,6 +8,8 @@
                 <tr>
                     <th>Title</th>
                     <th>Category</th>
+                    <th>Created</th>
+                    <th>Modified</th>
                     <th>Action</th>
                 </tr>
                 @if(count($posts) == 0)
@@ -27,6 +29,8 @@
                         }}
                         </td>
                         <td>{{ $post->category->title }}</td>
+                        <td>{{ $post->created_at }}</td>
+                        <td>{{ $post->updated_at }}</td>
                         <td>
                             <a class="btn btn-info" href="{{ route('admin.post.edit', $post->id) }}">Edit</a> 
                             {{ Form::open(array('route' => array('admin.post.destroy', $post->id), 'method' => 'delete', 'style' => 'display: inline;')) }}

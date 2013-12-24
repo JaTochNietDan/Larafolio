@@ -5,6 +5,7 @@
         </title>
         <link href="/front/css/bootstrap.css" rel="stylesheet">
         <link href="/front/css/bootstrap-responsive.css" rel="stylesheet">
+		<link href="/front/css/prism.css" rel="stylesheet">
         <link href="/front/css/navbar.css" rel="stylesheet">
     </head>
     <body>
@@ -45,5 +46,6 @@
                 </div>
             </div>
         </div>
+		<script type="text/javascript" src="/front/js/prism.js"></script>
     </body>
 </html>
