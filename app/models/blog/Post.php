@@ -13,7 +13,7 @@ class Post extends Eloquent
 		
 		Post::saving(function($p)
 		{
-			$p->excerpt = $p->content;
+			$p->excerpt = substr($p->content, 0, 255);
 		});
 	}
 	
