@@ -23,7 +23,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Larafolio Admin</a>
+                    <a class="navbar-brand" href="/admin">{{ Cache::get('site-name') }} Admin Panel</a>
                 </div>
     
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -36,6 +36,7 @@
                                 <li><a href="{{ route('admin.post.create') }}">Add New Post</a></li>
                             </ul>
                         </li>
+                        <li{{ Request::is('admin/settings') ? ' class="active"' : '' }}><a href="{{ route('admin.settings') }}"><i class="fa fa-wrench"></i> Settings</a></li>
                     </ul>
                     @include('admin.user')
                 </div>
