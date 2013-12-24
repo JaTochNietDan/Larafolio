@@ -5,3 +5,5 @@ composer.lock
 .DS_Store
 Thumbs.db
 /app/database/production.sqlite
+*.KomodoProject
+_ide_helper.php
