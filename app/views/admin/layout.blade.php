@@ -11,6 +11,7 @@
         <link href="/back/css/bootstrap.css" rel="stylesheet">
         <link href="/back/css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="/back/font-awesome/css/font-awesome.min.css">
+        @yield('styles')
     </head>
 
     <body>

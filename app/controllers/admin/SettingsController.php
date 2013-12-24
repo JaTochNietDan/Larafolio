@@ -4,8 +4,6 @@ class SettingsController extends AdminController
 {
     function showmenu()
     {
-        // Session::remove('success');        
-        
         $this->layout->content = View::make('admin.settings.menu');
     }
     
@@ -13,10 +11,13 @@ class SettingsController extends AdminController
     {  
         $menu = array();
         
-        foreach(Input::get('item') as $item)
+        if(Input::has('item'))
         {
-            if(!empty($item['title']))
-                $menu[] = $item;
+            foreach(Input::get('item') as $item)
+            {
+                if(!empty($item['title']))
+                    $menu[] = $item;
+            }
         }
         
         Cache::forever('menu-items', $menu);

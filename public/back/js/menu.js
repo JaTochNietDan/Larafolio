@@ -1,5 +1,9 @@
 $(document).ready(function()
 {
+    $('#table_menu tbody.sortable tr').hover(function() {
+        $(this).css('cursor','move');
+    });
+    
     $('.delete_row').click(function()
     {
         $(this).parent().parent().remove();
@@ -21,7 +25,9 @@ $(document).ready(function()
         td.append(a);
         td.append('</td>');
         
-        var tr = $('<tr>');
+        var tr = $('<tr>').hover(function() {
+            $(this).css('cursor','move');
+        });;
         
         tr.append('<td><input type="text" name="item[' + idx + '][title]" class="form-control" /></td>');
         tr.append('<td><input type="text" name="item[' + idx + '][icon]" class="form-control" /></td>');
@@ -29,9 +35,7 @@ $(document).ready(function()
         tr.append(td);
         tr.append('</tr>');
         
-        console.log(tr);
-        
-        $('#last_row').before(tr);
+        $('#table_menu > tbody.sortable').append(tr);
     });
     
     $('.push_up').click(function()
@@ -43,7 +47,7 @@ $(document).ready(function()
         var $originals = tr.children();
         var $helper = tr.clone();
         $helper.children().each(function(index) {
-            $(this).width($originals.eq(index).width())
+            $(this).width($originals.eq(index).width());
         });
         return $helper;
     },
