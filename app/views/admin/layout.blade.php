@@ -28,8 +28,8 @@
     
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
-                        <li><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                        <li class="dropdown active">
+                        <li{{ Request::is('admin') ? ' class="active"' : '' }}><a href="/admin"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                        <li class="dropdown{{ Request::is('admin/post*') ? ' open' : '' }}">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-edit"></i> Posts <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ route('admin.post.index') }}">All Posts</a></li>
