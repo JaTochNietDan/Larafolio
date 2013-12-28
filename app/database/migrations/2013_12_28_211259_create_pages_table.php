@@ -12,7 +12,7 @@ class CreatePagesTable extends Migration
             
             $t->string('title');
 			$t->string('link')->unique();
-            $t->text('content');
+            $t->text('content')->nullable();
             
             $t->timestamp('updated_at');
             $t->timestamp('created_at');

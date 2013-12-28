@@ -75,6 +75,6 @@ Route::filter('csrf', function()
 {
 	if (Session::token() != Input::get('_token'))
 	{
-		throw new Illuminate\Session\TokenMismatchException;
+		return Redirect::to('/')->withErrors(array('errors' => 'It looks like someone tried to CSRF you, but we stopped them ;)!'));
 	}
 });

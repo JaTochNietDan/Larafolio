@@ -31,7 +31,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     
     Route::resource('post', 'APostController', array('except' => array('show')));
     Route::resource('category', 'ACategoryController', array('except' => array('show', 'edit', 'create')));
-    Route::resource('page', 'APageController');
+    Route::resource('page', 'APageController', array('except' => array('show')));
     
     Route::get('settings/general', array('as' => 'admin.settings.general', 'uses' => 'SettingsController@showgeneral'));
     Route::post('settings/general', array('as' => 'admin.settings.general.save', 'uses' => 'SettingsController@savegeneral'));
