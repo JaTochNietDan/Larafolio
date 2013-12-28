@@ -1,52 +1,43 @@
-<html>
-    <head>
-        <title>
+@section('content')
+<div class="col-lg-4">
+    <div class="panel panel-default">				
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-list"></span>
             Login
-        </title>
-        <link href="/front/css/bootstrap.css" rel="stylesheet">
-        <link href="/front/css/bootstrap-responsive.css" rel="stylesheet">
-        <link href="/front/css/navbar.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="container">
-            @include('front.errors')
-            <div class="row">
-                <div class="span12">
-                    <div class="widget">				
-                        <div class="widget-header">
-                            <i class="icon-lock"></i>
-                            <h3>Login</h3>
-                        </div>
-                        <div class="widget-content">
-                            {{ Form::open(array('action' => 'LoginController@login', 'class' => 'form-horizontal')) }}
-                                <div class="control-group">
-                                    {{ Form::label('Email', null, array('class' => 'control-label'))}}
-                                    <div class="controls">
-                                    {{
-                                        Form::text('email', Input::old('email'), array(
-                                            'placeholder' => 'email@example.com'
-                                        ));
-                                    }}
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    {{ Form::label('Password', null, array('class' => 'control-label'))}}
-                                    <div class="controls">
-                                    {{
-                                        Form::password('password');
-                                    }}
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
-                                    </div>
-                                </div>
-                            {{ Form::close() }}
-                        </div>
-                    </div>
+        </div>
+    
+        <div class="panel-body">
+        {{ Form::open(array('action' => 'LoginController@login', 'class' => 'form-horizontal')) }}
+            <div class="control-group">
+                {{ Form::label('Email', null, array('class' => 'control-label'))}}
+                <div class="controls">
+                {{
+                    Form::text('email', Input::old('email'), array(
+                        'placeholder' => 'email@example.com',
+                        'class' => 'form-control'
+                    ));
+                }}
                 </div>
             </div>
+            <div class="control-group">
+                {{ Form::label('Password', null, array('class' => 'control-label'))}}
+                <div class="controls">
+                {{
+                    Form::password('password', array('class' => 'form-control'));
+                }}
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </div>
+            </div>
+        {{ Form::close() }}
         </div>
-    </body>
-</html>
+    </div>
+</div>
+@stop
+
+@section('breadcrumb')
+<li class="active">Login</li>
+@stop

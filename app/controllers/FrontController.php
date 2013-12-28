@@ -11,4 +11,9 @@ class FrontController extends Controller
 			$this->layout = View::make($this->layout);
 		}
 	}
+	
+	function login()
+	{
+		$this->layout->content = View::make('admin.login');
+	}
 }
