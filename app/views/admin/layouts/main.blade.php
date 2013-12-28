@@ -32,6 +32,11 @@
                     <div class="topnav">
                         <div class="btn-toolbar">
                             <div class="btn-group">
+                                <a href="{{ route('admin.settings.profile') }}" data-placement="bottom" data-original-title="Change my account settings" data-toggle="tooltip" class="btn btn-info btn-sm">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                            </div>
+                            <div class="btn-group">
                                 <a href="{{ route('logout') }}" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom" class="btn btn-metis-1 btn-sm">
                                     <i class="fa fa-power-off"></i>
                                 </a>
@@ -63,6 +68,11 @@
                             <li{{ Request::is('admin/settings/menu') ? ' class="active"' : '' }}>
                                 <a href="{{ route('admin.settings.menu') }}">
                                     <i class="fa fa-angle-right"></i>&nbsp;Menu
+                                </a>
+                            </li>
+                            <li{{ Request::is('admin/settings/profile') ? ' class="active"' : '' }}>
+                                <a href="{{ route('admin.settings.profile') }}">
+                                    <i class="fa fa-angle-right"></i>&nbsp;Profile
                                 </a>
                             </li>
                         </ul>

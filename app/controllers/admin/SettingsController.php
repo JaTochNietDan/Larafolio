@@ -40,8 +40,8 @@ class SettingsController extends AdminController
 	function savegeneral()
 	{
 		$rules = array(
-			'site-title' => 'max:13',
-			'site-name' => 'max:13',
+			'site-title' => 'required|max:13',
+			'site-name' => 'required|max:13',
 			'posts-page' => 'integer|required',
 			'date-format' => 'required'
 		);
@@ -57,5 +57,45 @@ class SettingsController extends AdminController
 		Cache::forever('date-format', Input::get('date-format'));
 		
 		return Redirect::to(route('admin.settings.general'))->with('success', 'Website settings have been saved!');
+	}
+	
+	function showprofile()
+	{
+		$data = array(
+			'email' => Auth::user()->email
+		);
+		
+		$this->layout->content = View::make('admin.settings.profile', $data);
+	}
+	
+	function saveprofile()
+	{
+		$rules = array(
+			'email' => 'required|email'
+		);
+		
+		$v = Validator::make(Input::all(), $rules);
+		
+		if($v->fails())
+			return Redirect::to(route('admin.settings.profile'))->withErrors($v);
+		
+		if(Input::get('newpass'))
+		{
+			if(Input::get('newpass') != Input::get('confirmpass'))
+				return Redirect::to(route('admin.settings.profile'))->withErrors(array('errors' => 'Password\'s didn\'t match!'));
+			
+			Auth::user()->update(array(
+				'email' => Input::get('email'),
+				'password' => Hash::make(Input::get('newpass'))
+			));
+			
+			return Redirect::to(route('admin.settings.profile'))->with('success', 'Changed your password!');
+		}
+		
+		Auth::user()->update(array(
+			'email' => Input::get('email')
+		));
+		
+		return Redirect::to(route('admin.settings.profile'))->with('success', 'Updated your profile!');
 	}
 }

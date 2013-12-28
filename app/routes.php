@@ -36,7 +36,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::resource('page', 'APageController', array('except' => array('show')));
     
     Route::get('settings/general', array('as' => 'admin.settings.general', 'uses' => 'SettingsController@showgeneral'));
-    Route::post('settings/general', array('as' => 'admin.settings.general.save', 'uses' => 'SettingsController@savegeneral'));
+    Route::post('settings/general', 'SettingsController@savegeneral');
     Route::get('settings/menu', array('as' => 'admin.settings.menu', 'uses' => 'SettingsController@showmenu'));
-    Route::post('settings/menu', array('as' => 'admin.settings.menu.save', 'uses' => 'SettingsController@savemenu'));
+    Route::post('settings/menu', 'SettingsController@savemenu');
+    Route::get('settings/profile', array('as' => 'admin.settings.profile', 'uses' => 'SettingsController@showprofile'));
+    Route::post('settings/profile', 'SettingsController@saveprofile');
 });
