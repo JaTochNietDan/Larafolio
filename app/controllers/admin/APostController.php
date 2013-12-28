@@ -2,12 +2,6 @@
 
 class APostController extends AdminController
 {
-    private static $rules = array(
-            'title' => 'min:3|max:20|required|unique:posts',
-            'category_id' => 'required|exists:categories,id',
-            'published' => 'digitsbetween:0,1|integer'
-    );
-    
     function index()
     {
         $posts = Post::take(Cache::get('posts-page'))->get();
@@ -39,7 +33,7 @@ class APostController extends AdminController
         $valid = Validator::make(Input::all(), Post::store_rules());
         
         if($valid->fails())
-            return Redirect::to(route('admin.post.create'))->withErrors($valid)->withInput(Input::all());
+            return Redirect::to(route('admin.post.create'))->withErrors($valid)->withInput();
         
         $data = Input::except('published');
         $data['published'] = Input::get('published', 0);
@@ -68,7 +62,7 @@ class APostController extends AdminController
         $valid = Validator::make(Input::all(), Post::update_rules($id));
         
         if($valid->fails())
-            return Redirect::to(route('admin.post.edit', $id))->withErrors($valid)->withInput(Input::all());
+            return Redirect::to(route('admin.post.edit', $id))->withErrors($valid)->withInput();
         
         $p = Post::find($id);
         
