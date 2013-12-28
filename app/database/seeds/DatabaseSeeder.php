@@ -16,6 +16,11 @@ class DatabaseSeeder extends Seeder {
 			'password' => Hash::make('demo')
 		));
 		
+		Category::create(array(
+			'id' => 0,
+			'title' => 'Uncategorized'
+		));
+		
 		$c = Category::create(array(
 			'title' => 'Technology'	
 		));

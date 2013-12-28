@@ -29,6 +29,15 @@
                             {{ Cache::get('site-name') }} Admin Panel
                         </a>
                     </header>
+                    <div class="topnav">
+                        <div class="btn-toolbar">
+                            <div class="btn-group">
+                                <a href="{{ route('logout') }}" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom" class="btn btn-metis-1 btn-sm">
+                                    <i class="fa fa-power-off"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
             </div>
             <div id="left">            
@@ -77,6 +86,11 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li{{ Request::is('admin/category') ? ' class="active"' : '' }}>
+                        <a href="{{ route('admin.category.index') }}">
+                            <i class="fa fa-folder"></i>&nbsp;Categories
+                        </a>
                     </li>
                 </ul>
             </div>

@@ -9,6 +9,8 @@ class Post extends Eloquent
 		Post::creating(function($p)
 		{
 			$p->link = strtolower(str_replace(' ', '-', $p->title));
+			
+			$p->category->count += 1;
 		});
 		
 		Post::saving(function($p)

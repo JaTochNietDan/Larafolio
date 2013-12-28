@@ -16,6 +16,22 @@ class Category extends Eloquent
     {
         return $this->hasMany('Post');
     }
+	
+	public static function update_rules()
+	{
+		return array(
+			'title' => 'required|min:2|max:20|unique:categories'
+		);
+	}
+	
+	public function delete()
+	{
+		Post::where('category_id', '=', $this->id)->update(array('category_id' => 0));
+		
+		return parent::delete();
+	}
     
+	protected $fillable = array('title');
+	
     protected $table = 'categories';
 }

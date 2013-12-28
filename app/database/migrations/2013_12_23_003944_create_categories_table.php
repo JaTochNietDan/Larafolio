@@ -13,13 +13,17 @@ class CreateCategoriesTable extends Migration {
 	{
 		Schema::create('categories', function($t)
         {
-            $t->increments('id');
+            $t->increments('id')->unsigned();
             
             $t->string('title')->unique();
 			$t->string('link')->unique();
             
             $t->timestamp('updated_at');
             $t->timestamp('created_at');
+			
+			$t->foreign('id')
+			  ->references('category_id')
+			  ->on('posts');
         });
 	}
 
