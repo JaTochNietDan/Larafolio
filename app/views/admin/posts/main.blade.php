@@ -1,3 +1,0 @@
-@section('title')
-    Posts
-@stop

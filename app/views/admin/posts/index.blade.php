@@ -1,9 +1,12 @@
 @section('content')
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-edit"></i> All posts</h3>
-        </div>
-        <div class="panel-body">
+    <div class="box inverse">
+        <header>
+            <div class="icons">
+                <i class="fa fa-edit"></i>
+            </div>
+            <h5>All Posts</h5>
+        </header>
+        <div class="body">
             <table class="table table-bordered table-striped">
                 <tr>
                     <th>Title</th>
@@ -48,5 +51,3 @@
         </div>
     </div>
 @stop
-
-@include('admin.posts.main')

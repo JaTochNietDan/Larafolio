@@ -1,9 +1,12 @@
 @section('content')
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-edit"></i> Edit Post</h3>
-        </div>
-        <div class="panel-body">
+    <div class="box inverse">
+        <header>
+            <div class="icons">
+                <i class="fa fa-edit"></i>
+            </div>
+            <h5>Edit Post</h5>
+        </header>
+        <div class="body">
             {{ Form::open(array('route' => array('admin.post.update', $post->id), 'method' => 'put', 'class' => 'form-horizontal')) }}
                 @include('admin.posts.form', $post)
                 <div class="form-group">
@@ -15,5 +18,3 @@
         </div>
     </div>
 @stop
-
-@include('admin.posts.main')

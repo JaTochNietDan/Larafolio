@@ -31,7 +31,7 @@
 <div class="form-group">
     {{ Form::label('Content', null, array('class' => 'col-sm-2 control-label')) }}
     <div class="col-sm-10">
-        {{ Form::textarea('content', $post->content, array('class' => 'form-control', 'id' => 'content'))}}
+        {{ Form::textarea('content', $post->content, array('class' => 'form-control', 'id' => 'post-content'))}}
     </div>
 </div>
 <div class="form-group">
@@ -42,5 +42,5 @@
 </div>
     
 @section('scripts')
-    @include('admin.editor')
+    @include('admin.layouts.editor')
 @stop

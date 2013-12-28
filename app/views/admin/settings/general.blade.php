@@ -1,13 +1,12 @@
-@section('title')
-    General Settings
-@stop
-
 @section('content')
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-edit"></i> Edit Settings</h3>
-        </div>
-        <div class="panel-body">
+    <div class="box inverse">
+        <header>
+            <div class="icons">
+                <i class="fa fa-wrench"></i>
+            </div>
+            <h5>Edit General Settings</h5>
+        </header>
+        <div class="body">
             {{ Form::open(array('route' => array('admin.settings.general'), 'class' => 'form-horizontal')) }}
                 <div class="form-group">
                     {{ Form::label('Site Title', null, array('class' => 'col-sm-2 control-label')) }}

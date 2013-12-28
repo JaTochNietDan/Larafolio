@@ -2,7 +2,7 @@
 
 class AdminController extends Controller
 {
-	protected $layout = 'admin.layout';
+	protected $layout = 'admin.layouts.main';
 	
 	protected function setupLayout()
 	{

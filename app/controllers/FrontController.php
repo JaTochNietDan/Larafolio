@@ -2,7 +2,7 @@
 
 class FrontController extends Controller
 {
-	protected $layout = 'front.layout';
+	protected $layout = 'front.layouts.main';
 	
 	protected function setupLayout()
 	{

@@ -5922,6 +5922,10 @@ a.list-group-item.active:focus .list-group-item-text {
   padding: 15px;
 }
 
+.panel-body img {
+  max-width: 100%;
+}
+
 .panel-body:before,
 .panel-body:after {
   display: table;
