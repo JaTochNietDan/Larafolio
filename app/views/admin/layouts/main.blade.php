@@ -92,6 +92,25 @@
                             <i class="fa fa-folder"></i>&nbsp;Categories
                         </a>
                     </li>
+                    <li{{ Request::is('admin/page*') ? ' class="active"' : '' }}>
+                        <a href="{{ route('admin.page.index') }}">
+                            <i class="fa fa-file-o"></i>
+                            <span class="link-title">Pages</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul>
+                            <li{{ Request::is('admin/page') ? ' class="active"' : '' }}>
+                                <a href="{{ route('admin.page.index') }}">
+                                    <i class="fa fa-angle-right"></i>&nbsp;All Pages
+                                </a>
+                            </li>
+                            <li{{ Request::is('admin/page/create') ? ' class="active"' : '' }}>
+                                <a href="{{ route('admin.page.create') }}">
+                                    <i class="fa fa-angle-right"></i>&nbsp;Add New Page
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div id="content">

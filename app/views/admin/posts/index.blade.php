@@ -17,7 +17,7 @@
                 </tr>
                 @if(count($posts) == 0)
                     <tr>
-                        <td colspan="3">No posts yet!</td>
+                        <td colspan="5">No posts yet!</td>
                     </tr>
                 @endif
                 @foreach($posts as $post)

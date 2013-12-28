@@ -28,8 +28,10 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout')
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
     Route::get('', 'AdminController@dash');
+    
     Route::resource('post', 'APostController', array('except' => array('show')));
     Route::resource('category', 'ACategoryController', array('except' => array('show', 'edit', 'create')));
+    Route::resource('page', 'APageController');
     
     Route::get('settings/general', array('as' => 'admin.settings.general', 'uses' => 'SettingsController@showgeneral'));
     Route::post('settings/general', array('as' => 'admin.settings.general.save', 'uses' => 'SettingsController@savegeneral'));
