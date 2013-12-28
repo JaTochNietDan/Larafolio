@@ -21,7 +21,7 @@
             @endif
             @foreach($pages as $page)
             <tr>
-                <td>{{ $page->title }}</td>
+                <td>{{ link_to(route('page', $page->link), $page->title) }}</td>
                 <td>{{ $page->created_at }}</td>
                 <td>{{ $page->updated_at }}</td>
                 <td>

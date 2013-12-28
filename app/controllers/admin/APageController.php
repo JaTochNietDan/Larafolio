@@ -27,7 +27,7 @@ class APageController extends AdminController
         
         Page::create(Input::all());
         
-        return Redirect::to(route('admin.page.index'));
+        return Redirect::to(route('admin.page.index'))->with('success', 'Page created!');
     }
     
     function edit($id)

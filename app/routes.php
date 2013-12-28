@@ -21,6 +21,8 @@ Route::group(array('prefix' => 'blog'), function()
     Route::get('', array('as' => 'blog', 'uses' => 'PostController@index'));
 });
 
+Route::get('page/{page}', array('as' => 'page', 'uses' => 'PageController@show'));
+
 Route::get('login', 'FrontController@login');
 Route::post('login', 'LoginController@login');
 Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout'));
