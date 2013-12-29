@@ -58,5 +58,5 @@ $(document).ready(function()
     $("#table_menu tbody.sortable").sortable({
         helper: fixHelperModified,
         stop: updateIndex
-    }).disableSelection();
+    });
 });
