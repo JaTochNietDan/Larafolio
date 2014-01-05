@@ -4,10 +4,9 @@
         <meta charset="UTF-8">
         <title>{{ Cache::get('site-title') }} Admin Panel</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/back/lib/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/back/lib/Font-Awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/back/css/bootstrap.css">
+        <link rel="stylesheet" href="/back/Font-Awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="/back/css/main.css">
-        <link rel="stylesheet" href="/back/css/theme.css">
     
         <!--[if lt IE 9]>
             <script src="/back/lib/html5shiv/html5shiv.js"></script>
@@ -135,9 +134,9 @@
                 @yield('content')
             </div>
         </div>
-        <script type="text/javascript" src="/back/lib/jquery.min.js"></script>
-        <script type="text/javascript" src="/back/lib/jquery-ujs.js"></script>
-        <script type="text/javascript" src="/back/lib/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/back/js/jquery.js"></script>
+        <script type="text/javascript" src="/back/js/jquery-ujs.js"></script>
+        <script type="text/javascript" src="/back/js/bootstrap.js"></script>
         <script type="text/javascript" src="/back/js/main.min.js"></script>
         @yield('scripts')
     </body>

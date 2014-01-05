@@ -54,7 +54,7 @@
 			</div>
 		</div>
 		<script type="text/javascript" src="/back/js/jquery.js"></script>
-		<script type="text/javascript" src="/front/js/bootstrap.js"></script>
+		<script type="text/javascript" src="/front/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/front/js/prism.js"></script>
     </body>
 </html>
