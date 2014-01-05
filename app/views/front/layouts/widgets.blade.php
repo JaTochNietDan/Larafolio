@@ -3,7 +3,6 @@
     <div class="row-right">
         <div class="panel panel-default">				
             <div class="panel-heading">
-                <span class="glyphicon glyphicon-{{ $widget['icon'] }}"></span>
                 {{ $widget['title'] }}
             </div>
         

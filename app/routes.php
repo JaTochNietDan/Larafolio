@@ -35,10 +35,16 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::resource('category', 'ACategoryController', array('except' => array('show', 'edit', 'create')));
     Route::resource('page', 'APageController', array('except' => array('show')));
     
-    Route::get('settings/general', array('as' => 'admin.settings.general', 'uses' => 'SettingsController@showgeneral'));
-    Route::post('settings/general', 'SettingsController@savegeneral');
-    Route::get('settings/menu', array('as' => 'admin.settings.menu', 'uses' => 'SettingsController@showmenu'));
-    Route::post('settings/menu', 'SettingsController@savemenu');
-    Route::get('settings/profile', array('as' => 'admin.settings.profile', 'uses' => 'SettingsController@showprofile'));
-    Route::post('settings/profile', 'SettingsController@saveprofile');
+    Route::group(array('prefix' => 'settings'), function()
+    {
+        Route::get('general', array('as' => 'admin.settings.general', 'uses' => 'SettingsController@showgeneral'));
+        Route::post('general', 'SettingsController@savegeneral');
+        Route::get('menu', array('as' => 'admin.settings.menu', 'uses' => 'SettingsController@showmenu'));
+        Route::post('menu', 'SettingsController@savemenu');
+        Route::get('profile', array('as' => 'admin.settings.profile', 'uses' => 'SettingsController@showprofile'));
+        Route::post('profile', 'SettingsController@saveprofile');
+        
+        Route::resource('widget', 'WidgetController', array('except' => array('show')));
+    });
+    
 });

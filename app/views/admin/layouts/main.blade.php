@@ -70,6 +70,11 @@
                                     <i class="fa fa-angle-right"></i>&nbsp;Menu
                                 </a>
                             </li>
+                            <li{{ Request::is('admin/settings/widget*') ? ' class="active"' : '' }}>
+                                <a href="{{ route('admin.settings.widget.index') }}">
+                                    <i class="fa fa-angle-right"></i>&nbsp;Widgets
+                                </a>
+                            </li>
                             <li{{ Request::is('admin/settings/profile') ? ' class="active"' : '' }}>
                                 <a href="{{ route('admin.settings.profile') }}">
                                     <i class="fa fa-angle-right"></i>&nbsp;Profile
