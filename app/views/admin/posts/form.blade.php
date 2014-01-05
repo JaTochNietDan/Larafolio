@@ -8,15 +8,13 @@
     {{ Form::label('Category', null, array('class' => 'col-sm-2 control-label')) }}
     <div class="col-sm-10">
         <select name="category_id" class="form-control">
-        @if(!empty($post->category->id))
-            <option value="{{ $post->category->id }}">{{ $post->category->title}} </option>
-                
-            @foreach(Category::where('id', '!=', $post->category->id)->get() as $c)
-                <option value="{{ $c->id }}">{{ $c->title }}</option>
+        @if(!empty($post->category->id))       
+            @foreach(Category::all() as $c)
+                <option value="{{ $c->id }}"{{ $post->category->id == $c->id ? ' selected' : '' }}>{{ $c->title }}</option>
             @endforeach
         @else
             @foreach(Category::all() as $c)
-                <option value="{{ $c->id }}">{{ $c->title }}</option>
+                <option value="{{ $c->id }}"{{ Input::old('category_id', 0) == $c->id ? ' selected' : '' }}>{{ $c->title }}</option>
             @endforeach
         @endif
         </select>
