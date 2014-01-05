@@ -42,7 +42,7 @@
 				<div class="row">
 					@yield('content')
 					<div class="col-lg-3">
-						@yield('side')
+						@include('front.layouts.widgets')
 					</div>
 				</div>
 			</div>
