@@ -43,7 +43,7 @@ class Post extends Eloquent
 	public static function update_rules($id)
 	{
 		return array(
-			'title' => 'min:3|max:20|required|unique:posts,title,'.$id,
+			'title' => 'min:3|max:50|required|unique:posts,title,'.$id,
 			'category_id' => 'required|exists:categories,id',
 			'published' => 'digitsbetween:0,1|integer',
 			'excerpt' => 'max:500'
@@ -53,7 +53,7 @@ class Post extends Eloquent
 	public static function store_rules()
 	{
 		return array(
-			'title' => 'min:3|max:20|required|unique:posts',
+			'title' => 'min:3|max:50|required|unique:posts',
 			'category_id' => 'required|exists:categories,id',
 			'published' => 'digitsbetween:0,1|integer',
 			'excerpt' => 'max:500'
