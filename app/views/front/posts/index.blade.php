@@ -15,7 +15,10 @@
         </div>
     
         <div class="panel-body">
-            <p></p><p>{{ $post->excerpt }}</p>
+            <p>{{ $post->excerpt }}</p>
+            <div class="pull-right">
+                <a href="{{ route('blog.post', array($post->category->link, $post->link)) }}" class="btn btn-sm btn-primary">Continue Reading</a>
+            </div>
         </div>
     </div>
     @endforeach
