@@ -46,5 +46,4 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
         
         Route::resource('widget', 'WidgetController', array('except' => array('show')));
     });
-    
 });

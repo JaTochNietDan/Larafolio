@@ -8,6 +8,7 @@ class CacheSeeder extends Seeder
         Cache::forever('site-name', 'Larafolio');
         Cache::forever('posts-page', 10);
         Cache::forever('date-format', '\a\t H:i \o\n l \t\h\e jS \o\f F Y');
+        Cache::forever('footer', 'Powered by <a href="https://github.com/JaTochNietDan/Larafolio">Larafolio</a>');
         
         Cache::forever('menu-items', array(
             array(
@@ -28,17 +29,6 @@ class CacheSeeder extends Seeder
                 'title' => 'Categories',
                 'type' => 'categories',
                 'icon' => 'folder-open'
-            ),
-            array(
-                'title' => 'Recent Posts',
-                'type' => 'recentposts',
-                'icon' => 'list-alt'
-            ),
-            array(
-                'title' => 'Blog Roll',
-                'type' => 'custom',
-                'content' => 'Thug lyfe',
-                'icon' => 'user'
             )
         ));
     }

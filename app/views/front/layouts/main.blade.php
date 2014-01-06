@@ -50,7 +50,7 @@
 		</div>
 		<div id="footer">
 			<div class="container">
-				<p class="muted credit">Footer lyfe.</p>
+				<p class="muted credit">{{ Cache::get('footer', 'Footer goes here.') }}</p>
 			</div>
 		</div>
 		<script type="text/javascript" src="/back/js/jquery.js"></script>

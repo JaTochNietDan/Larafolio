@@ -1,5 +1,5 @@
 @section('content')
-<div class="col-lg-4">
+<div class="col-lg-9">
     <div class="panel panel-default">				
         <div class="panel-heading">
             <span class="glyphicon glyphicon-list"></span>
