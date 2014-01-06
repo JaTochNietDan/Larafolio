@@ -11,10 +11,12 @@ class WidgetController extends AdminController
     
     function edit($id)
     {
-        if(!isset(Cache::get('widgets')[$id]))
+        $widgets = Cache::get('widgets');
+
+        if(empty($widgets[$id]))
             return Redirect::to(route('admin.settings.widget.index'))->withErrors(array('errors' => 'Incorrect ID specified!'));
         
-        $w = Cache::get('widgets')[$id];
+        $w = $widgets[$id];
         
         $this->layout->content = View::make('admin.settings.widget.edit', array('widget' => $w, 'id' => $id));
     }

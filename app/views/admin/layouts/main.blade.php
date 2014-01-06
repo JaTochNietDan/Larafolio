@@ -5,7 +5,7 @@
         <title>{{ Cache::get('site-title') }} Admin Panel</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/back/css/bootstrap.css">
-        <link rel="stylesheet" href="/back/Font-Awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/back/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="/back/css/main.css">
     
         <!--[if lt IE 9]>
