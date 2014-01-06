@@ -20,10 +20,6 @@ class CreateCategoriesTable extends Migration {
             
             $t->timestamp('updated_at');
             $t->timestamp('created_at');
-			
-			$t->foreign('id')
-			  ->references('category_id')
-			  ->on('posts');
         });
 	}
 

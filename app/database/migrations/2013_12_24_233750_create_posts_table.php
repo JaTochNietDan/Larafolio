@@ -23,11 +23,12 @@ class CreatePostsTable extends Migration {
 			$t->boolean('published')->default(false);
             
             $t->integer('category_id')->unsigned()->default(0);
+			
+			$t->index('category_id');
             
             $t->foreign('category_id')
 			  ->references('id')
-			  ->on('categories')
-			  ->onDelete('SET DEFAULT');
+			  ->on('categories');
             
             $t->timestamp('updated_at');
             $t->timestamp('created_at');
