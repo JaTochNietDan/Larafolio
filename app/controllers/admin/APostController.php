@@ -4,7 +4,7 @@ class APostController extends AdminController
 {
     function index()
     {
-        $posts = Post::take(Cache::get('posts-page'))->get();
+        $posts = Post::take(Cache::get('posts-page'))->orderBy('created_at', 'desc')->get();
         
         $data = array('posts' => $posts);
         
