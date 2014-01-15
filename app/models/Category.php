@@ -31,10 +31,8 @@ class Category extends Eloquent
 	
 	public function delete()
 	{
-		if($this->projects)
-			Project::where('category_id', '=', $this->id)->update(array('category_id' => 0));
-		else
-			Post::where('category_id', '=', $this->id)->update(array('category_id' => 0));
+		Project::where('category_id', '=', $this->id)->update(array('category_id' => 0));
+		Post::where('category_id', '=', $this->id)->update(array('category_id' => 0));
 		
 		return parent::delete();
 	}

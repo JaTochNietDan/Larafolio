@@ -12,8 +12,6 @@ class CreateCategoriesTable extends Migration
             
             $t->string('title')->unique();
 			$t->string('link')->unique();
-			
-			$t->boolean('projects')->default(0);
             
             $t->timestamp('updated_at');
             $t->timestamp('created_at');

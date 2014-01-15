@@ -38,7 +38,7 @@
                     <td colspan="2">No releases yet!</td>
                 </tr>
                 @endif
-                @foreach($project->releases as $release)
+                @foreach($project->releases()->orderBy('created_at', 'desc')->get() as $release)
                 <tr>
                     <td>{{ $release->name }}</td>
                     <td>

@@ -10,12 +10,13 @@
         <table class="table table-bordered table-striped">
             <tr>
                 <th>Name</th>
+                <th>Num. Posts</th>
                 <th>Num. Projects</th>
                 <th>Action</th>
             </tr>
             @if(count($categories) == 0)
                 <tr>
-                    <td colspan="3">No categories yet!</td>
+                    <td colspan="4">No categories yet!</td>
                 </tr>
             @endif
             @foreach($categories as $category)
@@ -23,6 +24,7 @@
                     {{ Form::open(array('route' => array('admin.category.update', $category->id), 'method' => 'put', 'style' => 'display: inline;')) }}
                     <td>{{ Form::text('title', $category->title, array('class' => 'form-control')) }}</td>
                     <td>{{ $category->posts()->count() }}</td>
+                    <td>{{ $category->projects()->count() }}</td>
                     <td>
                         {{ Form::submit('Save', array('class' => 'btn btn-info')) }}
                         {{ Form::close() }}
@@ -40,8 +42,8 @@
             @endforeach
             <tr>
                 {{ Form::open(array('route' => array('admin.category.store'), 'method' => 'post', 'style' => 'display: inline;')) }}
-                <td colspan="2">{{ Form::text('title', Input::old('title'), array('class' => 'form-control', 'placeholder' => 'Category name')) }}</td>
-                <td><input type="hidden" name="projects" value="1" />{{ Form::submit('Create', array('class' => 'btn btn-success')) }}</td>
+                <td colspan="3">{{ Form::text('title', Input::old('title'), array('class' => 'form-control', 'placeholder' => 'Category name')) }}</td>
+                <td>{{ Form::submit('Create', array('class' => 'btn btn-success')) }}</td>
                 {{ Form::close() }}
             </tr>
         </table>

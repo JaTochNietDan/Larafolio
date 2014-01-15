@@ -32,9 +32,7 @@ class CreateReleasesTable extends Migration
             $t->string('name');
             $t->string('original');
             $t->string('filename');
-            
-            $t->integer('downloads')->default(0);
-            
+
             $t->integer('release_id')->unsigned();
             
             $t->foreign('release_id')

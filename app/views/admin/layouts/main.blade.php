@@ -88,11 +88,6 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul>
-                            <li{{ Request::is('admin/post/category') ? ' class="active"' : '' }}>
-                                <a href="{{ route('admin.post.category.index') }}">
-                                    <i class="fa fa-angle-right"></i>&nbsp;Categories
-                                </a>
-                            </li>
                             <li{{ Request::is('admin/post') ? ' class="active"' : '' }}>
                                 <a href="{{ route('admin.post.index') }}">
                                     <i class="fa fa-angle-right"></i>&nbsp;All Posts
@@ -131,11 +126,6 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul>
-                            <li{{ Request::is('admin/project/category') ? ' class="active"' : '' }}>
-                                <a href="{{ route('admin.project.category.index') }}">
-                                    <i class="fa fa-angle-right"></i>&nbsp;Categories
-                                </a>
-                            </li>
                             <li{{ Request::is('admin/project') ? ' class="active"' : '' }}>
                                 <a href="{{ route('admin.project.index') }}">
                                     <i class="fa fa-angle-right"></i>&nbsp;All Projects
@@ -147,6 +137,11 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li{{ Request::is('admin/category') ? ' class="active"' : '' }}>
+                        <a href="{{ route('admin.category.index') }}">
+                            <i class="fa fa-folder"></i>&nbsp;Categories
+                        </a>
                     </li>
                 </ul>
             </div>

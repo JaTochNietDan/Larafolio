@@ -14,6 +14,8 @@ class CreateProjectsTable extends Migration
 			$t->string('link')->unique();
             $t->text('description');
             $t->string('excerpt')->length(500);
+            
+            $t->integer('downloads')->default(0);
 			
             $t->integer('category_id')->unsigned()->default(0);
 			

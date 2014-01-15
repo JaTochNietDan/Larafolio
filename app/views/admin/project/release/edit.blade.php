@@ -37,7 +37,7 @@
                 @if(count($release->files) == 0)
                     <tr><td colspan="3">No files added yet!</td></tr>
                 @endif
-                @foreach($release->files as $file)
+                @foreach($release->files()->orderBy('created_at', 'DESC')->get() as $file)
                     <tr>
                         <td>{{ $file->name }}</td>
                         <td>{{ $file->downloads }}</td>

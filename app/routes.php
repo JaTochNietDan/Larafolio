@@ -21,6 +21,17 @@ Route::group(array('prefix' => 'blog'), function()
     Route::get('', array('as' => 'blog', 'uses' => 'PostController@index'));
 });
 
+Route::group(array('prefix' => 'project'), function()
+{
+    Route::get('{category}', array('as' => 'project.category', 'uses' => 'ProjectController@listcategory'));
+    Route::get('{category}/{project}', array('as' => 'project', 'uses' => 'ProjectController@show'));
+    Route::get('{category}/{project}/release', array('as' => 'project.release.index', 'uses' => 'ProjectController@show'));
+    Route::get('{category}/{project}/release/{name}', array('as' => 'project.release.show', 'uses' => 'ProjectController@show'));
+    Route::get('{category}/{project}/release/{name}/download/{file}', array('as' => 'project.release.download', 'uses' => 'ProjectController@download'));
+    
+    Route::get('', array('as' => 'project.index', 'uses' => 'ProjectController@index'));
+});
+
 Route::get('page/{page}', array('as' => 'page', 'uses' => 'PageController@show'));
 
 Route::get('login', 'FrontController@login');
@@ -32,11 +43,9 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('', 'AdminController@dash');
     
     Route::resource('post', 'APostController', array('except' => array('show')));
-    Route::resource('category', 'ACategoryController', array('except' => array('index', 'show', 'edit', 'create')));
-    Route::get('post/category', array('as' => 'admin.post.category.index', 'uses' => 'ACategoryController@blogindex'));
+    Route::resource('category', 'ACategoryController', array('except' => array('show', 'edit', 'create')));
     Route::resource('page', 'APageController', array('except' => array('show')));
     
-    Route::get('project/category', array('as' => 'admin.project.category.index', 'uses' => 'ACategoryController@projectindex'));
     Route::resource('project', 'AProjectController', array('except' => array('show')));
     
     Route::resource('project.release', 'AReleaseController', array('except' => array('show', 'index')));
