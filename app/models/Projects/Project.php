@@ -19,12 +19,12 @@ class Project extends Eloquent
     
 	protected $table = 'projects';
 	
-	protected $fillable = array('title', 'published', 'content', 'category_id', 'excerpt');
+	protected $fillable = array('title', 'description', 'category_id', 'excerpt');
 	
 	public static function update_rules($id)
 	{
 		return array(
-			'title' => 'min:3|max:50|required|unique:projects,title,'.$id,
+			'title' => 'min:3|max:25|required|unique:projects,title,'.$id,
 			'category_id' => 'required|exists:categories,id',
 			'excerpt' => 'max:500'
 		);
@@ -33,7 +33,7 @@ class Project extends Eloquent
 	public static function store_rules()
 	{
 		return array(
-			'title' => 'min:3|max:50|required|unique:projects',
+			'title' => 'min:3|max:25|required|unique:projects',
 			'category_id' => 'required|exists:categories,id',
 			'excerpt' => 'max:500'
 		);
