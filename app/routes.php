@@ -39,6 +39,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('project/category', array('as' => 'admin.project.category.index', 'uses' => 'ACategoryController@projectindex'));
     Route::resource('project', 'AProjectController', array('except' => array('show')));
     
+    Route::resource('project.release', 'AReleaseController', array('except' => array('show', 'index')));
+    
     Route::group(array('prefix' => 'settings'), function()
     {
         Route::get('general', array('as' => 'admin.settings.general', 'uses' => 'SettingsController@showgeneral'));

@@ -16,6 +16,11 @@ class Project extends Eloquent
     {
         return $this->belongsTo('Category');
     }
+	
+	public function releases()
+	{
+		return $this->hasMany('Release');
+	}
     
 	protected $table = 'projects';
 	

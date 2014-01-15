@@ -5,6 +5,11 @@ class DatabaseSeeder extends Seeder
 	public function run()
 	{
 		Eloquent::unguard();
+		
+		Category::create(array(
+			'title' => 'Uncategorized',
+			'id' => 0
+		));
 
 		User::create(array(
 			'email' => 'demo@demo.com',
