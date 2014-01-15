@@ -143,7 +143,7 @@
                             </li>
                             <li{{ Request::is('admin/project/create') ? ' class="active"' : '' }}>
                                 <a href="{{ route('admin.project.create') }}">
-                                    <i class="fa fa-angle-right"></i>&nbsp;Add New Projects
+                                    <i class="fa fa-angle-right"></i>&nbsp;Add New Project
                                 </a>
                             </li>
                         </ul>

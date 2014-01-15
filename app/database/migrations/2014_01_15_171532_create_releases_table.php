@@ -24,10 +24,31 @@ class CreateReleasesTable extends Migration
             $t->timestamp('updated_at');
             $t->timestamp('created_at');
         });
+        
+        Schema::create('uploads', function($t)
+        {
+            $t->increments('id');
+            
+            $t->string('name');
+            $t->string('original');
+            $t->string('filename');
+            
+            $t->integer('downloads')->default(0);
+            
+            $t->integer('release_id')->unsigned();
+            
+            $t->foreign('release_id')
+			  ->references('id')
+			  ->on('releases');
+            
+            $t->timestamp('updated_at');
+            $t->timestamp('created_at');
+        });
 	}
 
 	public function down()
 	{
 		Schema::drop('releases');
+        Schema::drop('uploads');
 	}
 }

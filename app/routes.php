@@ -40,6 +40,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::resource('project', 'AProjectController', array('except' => array('show')));
     
     Route::resource('project.release', 'AReleaseController', array('except' => array('show', 'index')));
+    Route::resource('project.release.file', 'AUploadController', array('only' => array('destroy', 'store')));
     
     Route::group(array('prefix' => 'settings'), function()
     {

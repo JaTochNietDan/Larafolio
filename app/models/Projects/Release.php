@@ -7,6 +7,11 @@ class Release extends Eloquent
         return $this->belongsTo('Project');
     }
     
+    public function files()
+    {
+        return $this->hasMany('Upload');
+    }
+    
 	protected $table = 'releases';
 	
 	protected $fillable = array('name', 'changelog', 'project_id');
