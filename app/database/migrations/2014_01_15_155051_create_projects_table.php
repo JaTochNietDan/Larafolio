@@ -2,21 +2,19 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration
+class CreateProjectsTable extends Migration
 {
 	public function up()
 	{
-		Schema::create('posts', function($t)
+		Schema::create('projects', function($t)
         {
             $t->increments('id');
             
             $t->string('title')->unique();
 			$t->string('link')->unique();
-            $t->text('content');
+            $t->text('description');
             $t->string('excerpt')->length(500);
 			
-			$t->boolean('published')->default(false);
-            
             $t->integer('category_id')->unsigned()->default(0);
 			
 			$t->index('category_id');
@@ -32,6 +30,6 @@ class CreatePostsTable extends Migration
 
 	public function down()
 	{
-		Schema::drop('posts');
+		Schema::drop('projects');
 	}
 }

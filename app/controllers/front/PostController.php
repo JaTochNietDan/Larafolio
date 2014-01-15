@@ -16,7 +16,7 @@ class PostController extends FrontController
     
     function show($category_link, $post_link)
     {
-        $c = Category::where('link', $category_link)->first();
+        $c = Category::where('link', $category_link)->where('projects', '=', 0)->first();
         
         if(!$c)
             return Redirect::to('/')->withErrors(array('errors' => 'Category not found!'));
@@ -36,7 +36,7 @@ class PostController extends FrontController
     
     function listcategory($category_link)
     {
-        $c = Category::where('link', $category_link)->first();
+        $c = Category::where('link', $category_link)->where('projects', '=', 0)->first();
         
         if(!$c)
             return Redirect::to('/')->withErrors(array('errors' => 'Category not found!'));

@@ -32,8 +32,12 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('', 'AdminController@dash');
     
     Route::resource('post', 'APostController', array('except' => array('show')));
-    Route::resource('category', 'ACategoryController', array('except' => array('show', 'edit', 'create')));
+    Route::resource('category', 'ACategoryController', array('except' => array('index', 'show', 'edit', 'create')));
+    Route::get('post/category', array('as' => 'admin.post.category.index', 'uses' => 'ACategoryController@blogindex'));
     Route::resource('page', 'APageController', array('except' => array('show')));
+    
+    Route::get('project/category', array('as' => 'admin.project.category.index', 'uses' => 'ACategoryController@projectindex'));
+    Route::resource('project', 'AProjectController', array('except' => array('show')));
     
     Route::group(array('prefix' => 'settings'), function()
     {

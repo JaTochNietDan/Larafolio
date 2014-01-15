@@ -46,7 +46,7 @@
             </div>
             <div id="left">            
                 <ul id="menu" class="collapse">
-                    <li class="nav-header">General</li>
+                    <li class="nav-header">Menu</li>
                     <li{{ Request::is('admin') ? ' class="active"' : '' }}>
                         <a href="/admin">
                             <i class="fa fa-dashboard"></i>&nbsp;Dashboard
@@ -81,7 +81,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-header">Blog</li>
                     <li{{ Request::is('admin/post*') ? ' class="active"' : '' }}>
                         <a href="{{ route('admin.post.index') }}">
                             <i class="fa fa-edit"></i>
@@ -89,6 +88,11 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul>
+                            <li{{ Request::is('admin/post/category') ? ' class="active"' : '' }}>
+                                <a href="{{ route('admin.post.category.index') }}">
+                                    <i class="fa fa-angle-right"></i>&nbsp;Categories
+                                </a>
+                            </li>
                             <li{{ Request::is('admin/post') ? ' class="active"' : '' }}>
                                 <a href="{{ route('admin.post.index') }}">
                                     <i class="fa fa-angle-right"></i>&nbsp;All Posts
@@ -100,11 +104,6 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li{{ Request::is('admin/category') ? ' class="active"' : '' }}>
-                        <a href="{{ route('admin.category.index') }}">
-                            <i class="fa fa-folder"></i>&nbsp;Categories
-                        </a>
                     </li>
                     <li{{ Request::is('admin/page*') ? ' class="active"' : '' }}>
                         <a href="{{ route('admin.page.index') }}">
@@ -121,6 +120,30 @@
                             <li{{ Request::is('admin/page/create') ? ' class="active"' : '' }}>
                                 <a href="{{ route('admin.page.create') }}">
                                     <i class="fa fa-angle-right"></i>&nbsp;Add New Page
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li{{ Request::is('admin/project*') ? ' class="active"' : '' }}>
+                        <a href="{{ route('admin.project.index') }}">
+                            <i class="fa fa-briefcase"></i>
+                            <span class="link-title">Projects</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul>
+                            <li{{ Request::is('admin/project/category') ? ' class="active"' : '' }}>
+                                <a href="{{ route('admin.project.category.index') }}">
+                                    <i class="fa fa-angle-right"></i>&nbsp;Categories
+                                </a>
+                            </li>
+                            <li{{ Request::is('admin/project') ? ' class="active"' : '' }}>
+                                <a href="{{ route('admin.project.index') }}">
+                                    <i class="fa fa-angle-right"></i>&nbsp;All Projects
+                                </a>
+                            </li>
+                            <li{{ Request::is('admin/project/create') ? ' class="active"' : '' }}>
+                                <a href="{{ route('admin.project.create') }}">
+                                    <i class="fa fa-angle-right"></i>&nbsp;Add New Projects
                                 </a>
                             </li>
                         </ul>

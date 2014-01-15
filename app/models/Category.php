@@ -11,6 +11,11 @@ class Category extends Eloquent
 			$c->link = strtolower(str_replace(' ', '-', $c->title));
 		});
     }
+	
+	public function projects()
+	{
+		return $this->hasMany('Project');
+	}
     
     public function posts()
     {
@@ -31,7 +36,7 @@ class Category extends Eloquent
 		return parent::delete();
 	}
     
-	protected $fillable = array('title');
+	protected $fillable = array('title', 'projects');
 	
     protected $table = 'categories';
 }

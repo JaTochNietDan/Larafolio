@@ -2,13 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration {
-
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
+class CreateCategoriesTable extends Migration
+{
 	public function up()
 	{
 		Schema::create('categories', function($t)
@@ -17,20 +12,16 @@ class CreateCategoriesTable extends Migration {
             
             $t->string('title')->unique();
 			$t->string('link')->unique();
+			
+			$t->boolean('projects')->default(0);
             
             $t->timestamp('updated_at');
             $t->timestamp('created_at');
         });
 	}
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('categories');
 	}
-
 }

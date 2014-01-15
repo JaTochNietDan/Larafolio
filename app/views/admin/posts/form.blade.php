@@ -9,11 +9,11 @@
     <div class="col-sm-10">
         <select name="category_id" class="form-control">
         @if(!empty($post->category->id))       
-            @foreach(Category::all() as $c)
+            @foreach(Category::where('projects', '=', 0)->get() as $c)
                 <option value="{{ $c->id }}"{{ $post->category->id == $c->id ? ' selected' : '' }}>{{ $c->title }}</option>
             @endforeach
         @else
-            @foreach(Category::all() as $c)
+            @foreach(Category::where('projects', '=', 0)->get() as $c)
                 <option value="{{ $c->id }}"{{ Input::old('category_id', 0) == $c->id ? ' selected' : '' }}>{{ $c->title }}</option>
             @endforeach
         @endif
