@@ -73,3 +73,7 @@
     <li><a href="{{ route('project.category', $project->category->link) }}">{{ $project->category->title }}</a></li>
     <li>{{ $project->title }}</li>
 @stop
+
+@section('title')
+    {{ $project->title }}
+@stop
