@@ -20,7 +20,7 @@
                 @foreach($categories as $c)
                 <tr>
                     <td><a href="{{ route('project.category', $c->link) }}">{{ $c->title }}</a></td>
-                    <td>{{ $c->projects()->sum('downloads') }}</td>
+                    <td>{{ number_format($c->projects()->sum('downloads')) }}</td>
                 </tr>
                 @endforeach
             </table>
