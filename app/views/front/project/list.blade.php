@@ -20,7 +20,7 @@
                 <tr>
                     <td><a href="{{ route('project', array($category->link, $p->link)) }}">{{ $p->title }}</a></td>
                     <td>{{ $p->excerpt }}</td>
-                    <td>Coming soon...</td>
+                    <td>{{ number_format($p->downloads) }}</td>
                 </tr>
                 @endforeach
             </table>

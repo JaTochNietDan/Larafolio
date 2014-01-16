@@ -21,9 +21,9 @@ class AProjectController extends AdminController
         if($v->fails())
             return Redirect::to(route('admin.project.create'))->withErrors($v)->withInput(Input::all());
         
-        Project::create(Input::all());
+        $p = Project::create(Input::all());
         
-        return Redirect::to(route('admin.project.index'))->with('success', 'Project created!');
+        return Redirect::to(route('admin.project.edit', $p->id))->with('success', 'Project created!');
     }
     
     function destroy($id)

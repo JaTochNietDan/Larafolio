@@ -31,7 +31,6 @@
             <table class="table table-bordered table-striped">
                 <tr>
                     <th>Name</th>
-                    <th>Downloads</th>
                     <th>Action</th>
                 </tr>
                 @if(count($release->files) == 0)
@@ -40,7 +39,6 @@
                 @foreach($release->files()->orderBy('created_at', 'DESC')->get() as $file)
                     <tr>
                         <td>{{ $file->name }}</td>
-                        <td>{{ $file->downloads }}</td>
                         <td>
                         {{ Form::open(array('route' => array('admin.project.release.file.destroy', $project->id, $release->id, $file->id), 'method' => 'delete', 'style' => 'display: inline;')) }}
                             {{

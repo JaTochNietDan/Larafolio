@@ -66,9 +66,9 @@ class AReleaseController extends AdminController
         if($v->fails())
             return Redirect::to(route('admin.project.release.create', $project_id))->with(array('project' => $p))->withErrors($v)->withInput(Input::all());
         
-        $p->releases()->create(Input::except(array('_token')));
+        $r = $p->releases()->create(Input::except(array('_token')));
         
-        return Redirect::to(route('admin.project.edit', $project_id))->with('success', 'Release created!');
+        return Redirect::to(route('admin.project.release.edit', array($project_id, $r->id)))->with('success', 'Release created!');
     }
     
     function destroy($project_id, $id)
