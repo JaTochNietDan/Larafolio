@@ -8,7 +8,7 @@
 		<meta charset="UTF-8">
 			
         <link href="/front/css/bootstrap-alt.css" rel="stylesheet">
-		<link href="/front/css/prism.css" rel="stylesheet">
+		<link href="/front/css/monokai_sublime.css" rel="stylesheet">
         <link href="/front/css/navbar.css" rel="stylesheet">
 		{{ Cache::get('analytics') }}
     </head>
@@ -56,6 +56,7 @@
 		</div>
 		<script type="text/javascript" src="/back/js/jquery.js"></script>
 		<script type="text/javascript" src="/front/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="/front/js/prism.js"></script>
+		<script type="text/javascript" src="/front/js/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
     </body>
 </html>

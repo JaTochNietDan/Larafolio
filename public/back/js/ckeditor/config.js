@@ -77,6 +77,6 @@ CKEDITOR.editorConfig = function( config ) {
 			["YAML"         , "yaml"]
 		],
 		theme : "monokai",
-		highlighter : "PRISM"
+		highlighter : "HIGHLIGHT"
 	};
 };
