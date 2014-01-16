@@ -14,6 +14,7 @@
             <p></p><p>{{ $post->content }}</p>
         </div>
     </div>
+    @if(Cache::has('disqus'))
     <div class="panel panel-default">				
         <div class="panel-heading">
             <span class="glyphicon glyphicon-comment"></span>
@@ -23,7 +24,7 @@
         <div class="panel-body">
             <div id="disqus_thread"></div>
             <script type="text/javascript">
-            var disqus_shortname = 'larafolio';
+            var disqus_shortname = '{{ Cache::get('disqus') }}';
             var disqus_identifier = 'post_{{ $post->id }}';
 
             (function() {
@@ -36,6 +37,7 @@
             <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
     </div>
+    @endif
 </div>
 @stop
 

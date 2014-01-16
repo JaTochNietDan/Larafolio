@@ -32,7 +32,9 @@ class SettingsController extends AdminController
 			'sitename' => Cache::get('site-name'),
 			'postspage' => Cache::get('posts-page'),
 			'dateformat' => Cache::get('date-format'),
-			'footer' => Cache::get('footer')
+			'footer' => Cache::get('footer'),
+			'tracking' => Cache::get('analytics'),
+			'disqus' => Cache::get('disqus')
 		);
 		
 		$this->layout->content = View::make('admin.settings.general', $data);
@@ -57,6 +59,8 @@ class SettingsController extends AdminController
 		Cache::forever('posts-page', Input::get('posts-page'));
 		Cache::forever('date-format', Input::get('date-format'));
 		Cache::forever('footer', Input::get('footer'));
+		Cache::forever('disqus', Input::get('disqus'));
+		Cache::forever('analytics', Input::get('tracking'));
 		
 		return Redirect::to(route('admin.settings.general'))->with('success', 'Website settings have been saved!');
 	}

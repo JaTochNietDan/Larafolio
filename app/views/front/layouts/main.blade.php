@@ -10,6 +10,7 @@
         <link href="/front/css/bootstrap-alt.css" rel="stylesheet">
 		<link href="/front/css/prism.css" rel="stylesheet">
         <link href="/front/css/navbar.css" rel="stylesheet">
+		{{ Cache::get('analytics') }}
     </head>
     <body>
 		<div id="wrap">

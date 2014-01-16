@@ -33,6 +33,18 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    {{ Form::label('Disqus ID (Optional)', null, array('class' => 'col-sm-2 control-label')) }}
+                    <div class="col-sm-10">
+                        {{ Form::text('disqus', $disqus, array('placeholder' => 'Enter your Disqus ID here to enable comments', 'class' => 'form-control'))}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ Form::label('Tracking (Optional)', null, array('class' => 'col-sm-2 control-label')) }}
+                    <div class="col-sm-10">
+                        {{ Form::textarea('tracking', $tracking, array('class' => 'form-control'))}}
+                    </div>
+                </div>
+                <div class="form-group">
                     {{ Form::label('Footer', null, array('class' => 'col-sm-2 control-label')) }}
                     <div class="col-sm-10">
                         {{ Form::textarea('footer', $footer, array('placeholder' => 'Footer text', 'class' => 'form-control', 'id' => 'post-content'))}}
