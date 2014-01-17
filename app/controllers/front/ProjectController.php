@@ -76,8 +76,8 @@ class ProjectController extends FrontController
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-        header('Content-Length: '.filesize('public/downloads/projects/'.$f->filename));
-        readfile('public/downloads/projects/'.$f->filename);
+        header('Content-Length: '.filesize('downloads/projects/'.$f->filename));
+        readfile('downloads/projects/'.$f->filename);
         
         return Redirect::to(route('project.release.show', array($c_link, $p_link, $release)))->with('success', 'File is now downloading!');
     }

@@ -7,7 +7,7 @@
     <div class="panel panel-default">				
         <div class="panel-heading">
             <span class="glyphicon glyphicon-list"></span>
-            {{ link_to_action('PostController@show', $post->title, array($post->category->link, $post->link)) }}
+            <a href="{{ route('blog.post', array($post->category->link, $post->link)) }} ">{{ $post->title }}</a>
             <em>
                 in {{ link_to_action('PostController@listcategory', $post->category->title, $post->category->link) }}
                 {{ $post->created_at->format(Cache::get('date-format')) }}
