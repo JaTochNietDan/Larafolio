@@ -42,7 +42,7 @@ class ProjectController extends FrontController
             'latest' => $p->releases()->orderBy('created_at', 'DESC')->first(),
             'view_release' => $p->releases()->where('name', '=', $release)->first()
         );
-        
+
         $this->layout->content = View::make('front.project.show', $data);
     }
     

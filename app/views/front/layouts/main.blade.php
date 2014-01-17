@@ -58,5 +58,6 @@
 		<script type="text/javascript" src="/front/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/front/js/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
+		@yield('scripts')
     </body>
 </html>
