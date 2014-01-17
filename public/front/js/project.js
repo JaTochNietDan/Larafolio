@@ -34,6 +34,6 @@ function loadDesc(a, tab)
     
     desc.load(target + ' #projdescinner', function()
     {
-        desc.fadeIn('slow');
+        $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
     });
 }
