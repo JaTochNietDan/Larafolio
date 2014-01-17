@@ -78,7 +78,7 @@
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = '{{ Cache::get('disqus') }}';
-            var disqus_identifier = 'post_{{ $project->id }}';
+            var disqus_identifier = 'project_{{ $project->id }}';
 
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
