@@ -6,6 +6,7 @@
         </title>
 		
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			
         <link href="/front/css/bootstrap-alt.css" rel="stylesheet">
 		<link href="/front/css/monokai_sublime.css" rel="stylesheet">
