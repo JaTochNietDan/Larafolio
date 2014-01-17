@@ -65,6 +65,19 @@ class ProjectController extends FrontController
         
         $f = $r->files()->find($file);
         
+        if(!$f)
+            return Redirect::to(route('project.release.show', array($c_link, $p_link, $release)))->withErrors(array('errors' => 'File not found!'));
+        
+        $download = 'downloads/projects/'.$f->filename;
+        
+        if(!File::exists($download))
+        {
+            Log::error('Missing project file: '.$p->title.' | '.$r->name.' | '.$f->name);
+            
+            return Redirect::to(route('project.release.show', array($c_link, $p_link, $release)))
+                   ->withErrors(array('errors' => 'There was an issue locating that file, an administrator has been notified.'));
+        }
+        
         $p->increment('downloads');
         
         while (@ob_end_flush());
@@ -76,8 +89,8 @@ class ProjectController extends FrontController
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-        header('Content-Length: '.filesize('downloads/projects/'.$f->filename));
-        readfile('downloads/projects/'.$f->filename);
+        header('Content-Length: '.filesize($download));
+        readfile('downloads/projects/'.$download);
         
         return Redirect::to(route('project.release.show', array($c_link, $p_link, $release)))->with('success', 'File is now downloading!');
     }
