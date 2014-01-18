@@ -36,7 +36,7 @@ class Project extends Eloquent
             {
                 if($file != '..' && $file != '.')
                 {
-                    if(in_array(pathinfo($path.'/'.$file, PATHINFO_EXTENSION), array('jpg', 'gif', 'png', 'jpeg')))
+                    if(in_array(strtolower(pathinfo($path.'/'.$file, PATHINFO_EXTENSION)), array('jpg', 'gif', 'png', 'jpeg')))
                         $images[] = $files[$key];
                 }
             }
