@@ -68,7 +68,7 @@ class ProjectController extends FrontController
         if(!$f)
             return Redirect::to(route('project.release.show', array($c_link, $p_link, $release)))->withErrors(array('errors' => 'File not found!'));
         
-        $download = 'downloads/projects/'.$f->filename;
+        $download = public_path('downloads/projects/'.$f->filename);
         
         if(!File::exists($download))
         {
@@ -90,7 +90,7 @@ class ProjectController extends FrontController
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
         header('Content-Length: '.filesize($download));
-        readfile('downloads/projects/'.$download);
+        readfile($download);
         
         return Redirect::to(route('project.release.show', array($c_link, $p_link, $release)))->with('success', 'File is now downloading!');
     }

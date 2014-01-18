@@ -14,7 +14,7 @@ class AUploadController extends AdminController
         
         $newfile = str_random(20);
         
-        $file->move('downloads/projects', $newfile);
+        $file->move(public_path('downloads/projects'), $newfile);
         
         Release::find($r)->files()->create(array(
             'name' => Input::get('name'),
@@ -32,7 +32,7 @@ class AUploadController extends AdminController
         if(!$file)
             return Redirect::to(route('admin.project.release.edit', array($p, $r)))->withErrors(array('errors' => 'File not found!'));
         
-        File::delete('downloads/projects/'.$file->filename);
+        File::delete(public_path('downloads/projects/'.$file->filename));
         
         $file->delete();
         
