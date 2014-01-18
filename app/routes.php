@@ -28,6 +28,7 @@ Route::group(array('prefix' => 'project'), function()
     Route::get('{category}/{project}/release', array('as' => 'project.release.index', 'uses' => 'ProjectController@show'));
     Route::get('{category}/{project}/release/{name}', array('as' => 'project.release.show', 'uses' => 'ProjectController@show'));
     Route::get('{category}/{project}/release/{name}/download/{file}', array('as' => 'project.release.download', 'uses' => 'ProjectController@download'));
+    Route::get('{category}/{project}/images', array('as' => 'project.images', 'uses' => 'ProjectController@show'));
     
     Route::get('', array('as' => 'project.index', 'uses' => 'ProjectController@index'));
 });

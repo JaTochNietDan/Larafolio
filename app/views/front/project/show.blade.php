@@ -27,6 +27,20 @@
             </div>
         </div>
     @endif
+    @if(count($images) > 0)
+        <div class="panel panel-default">				
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-picture"></span>
+                Preview
+            </div>
+        
+            <div class="panel-body">
+                <a class="fancybox" href="/downloads/projects/{{ $project->link }}/images/{{ $images[0] }}">
+                    <img src="/downloads/projects/{{ $project->link }}/images/{{ $images[0] }}" style="max-width: 100%" />
+                </a>
+            </div>
+        </div>
+    @endif
 </div>
 <div class="col-lg-6">
     <ul class="nav nav-tabs" style="" id="tablist">
@@ -36,6 +50,11 @@
         <li{{ Request::is('project/'.$project->category->link.'/'.$project->link.'/release*') ? ' class="active"' : '' }}>
             <a href="{{ route('project.release.index', array($project->category->link, $project->link)) }}" class="projnav">Releases</a>
         </li>
+        @if(count($images) > 0)
+            <li{{ Request::is('project/'.$project->category->link.'/'.$project->link.'/images') ? ' class="active"' : '' }}>
+                <a href="{{ route('project.images', array($project->category->link, $project->link)) }}" class="projnav">Images</a>
+            </li>    
+        @endif
     </ul>
     <div class="panel-fix panel-default">				
     
@@ -63,6 +82,14 @@
                         </a>
                     @endforeach
                 @endif
+            @elseif(Request::is('project/'.$project->category->link.'/'.$project->link.'/images'))
+                @foreach($images as $image)
+                    <div class="col-lg-4">
+                        <a class="fancybox" href="/downloads/projects/{{ $project->link }}/images/{{ $image }}">
+                            <img src="/downloads/projects/{{ $project->link }}/images/{{ $image }}" style="max-width: 100%" />
+                        </a>
+                    </div>
+                @endforeach
             @endif
             </div>
         </div>
@@ -105,5 +132,10 @@
 @stop
 
 @section('scripts')
+    <script type="text/javascript" src="/front/js/jquery.fancybox.js"></script>
     <script type="text/javascript" src="/front/js/project.js"></script>
+@stop
+
+@section('styles')
+    <link rel="stylesheet" href="/front/css/jquery.fancybox.css" type="text/css" media="screen" />
 @stop

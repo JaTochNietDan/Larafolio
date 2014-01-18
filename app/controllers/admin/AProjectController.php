@@ -57,27 +57,9 @@ class AProjectController extends AdminController
         if(!$p)
             return Redirect::to(route('admin.project.create'))->withErrors(array('errors' => 'Project not found!'));
         
-        $path = public_path('downloads/projects/'.$p->link.'/images');
-        
-        $images = array();
-        
-        if(File::isDirectory($path))
-        {
-            $files = scandir($path);
-            
-            foreach ($files as $key => $file)
-            {
-                if($file != '..' && $file != '.')
-                {
-                    if(in_array(pathinfo($path.'/'.$file, PATHINFO_EXTENSION), array('jpg', 'gif', 'png', 'jpeg')))
-                        $images[] = $files[$key];
-                }
-            }
-        }
-        
         $data = array(
             'project' => $p,
-            'project_images' => $images
+            'project_images' => $p->getImages()
         );
         
         $this->layout->content = View::make('admin.project.edit', $data);

@@ -11,6 +11,7 @@
         <link href="/front/css/bootstrap-alt.css" rel="stylesheet">
 		<link href="/front/css/monokai_sublime.css" rel="stylesheet">
         <link href="/front/css/navbar.css" rel="stylesheet">
+		@yield('styles')
 		{{ Cache::get('analytics') }}
     </head>
     <body>

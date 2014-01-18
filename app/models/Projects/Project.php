@@ -21,6 +21,29 @@ class Project extends Eloquent
 	{
 		return $this->hasMany('Release');
 	}
+	
+	public function getImages()
+	{
+		$path = public_path('downloads/projects/'.$this->link.'/images');
+        
+        $images = array();
+        
+        if(File::isDirectory($path))
+        {
+            $files = scandir($path);
+            
+            foreach ($files as $key => $file)
+            {
+                if($file != '..' && $file != '.')
+                {
+                    if(in_array(pathinfo($path.'/'.$file, PATHINFO_EXTENSION), array('jpg', 'gif', 'png', 'jpeg')))
+                        $images[] = $files[$key];
+                }
+            }
+        }
+		
+		return $images;
+	}
     
 	protected $table = 'projects';
 	

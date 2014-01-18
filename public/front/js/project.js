@@ -37,3 +37,8 @@ function loadDesc(a, tab)
         $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
     });
 }
+
+$(document).ready(function()
+{
+    $(".fancybox").fancybox();
+});
