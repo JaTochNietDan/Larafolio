@@ -47,6 +47,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::resource('page', 'APageController', array('except' => array('show')));
     
     Route::resource('project', 'AProjectController', array('except' => array('show')));
+    Route::post('project/{project}/edit/image', array('as' => 'admin.project.image.upload', 'uses' => 'AProjectController@uploadimage'));
+    Route::post('project/{project}/edit/image/{name}', array('as' => 'admin.project.image.destroy', 'uses' => 'AProjectController@destroyimage'));
     
     Route::resource('project.release', 'AReleaseController', array('except' => array('show', 'index')));
     Route::resource('project.release.file', 'AUploadController', array('only' => array('destroy', 'store')));

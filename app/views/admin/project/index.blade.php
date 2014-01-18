@@ -40,7 +40,7 @@
                                 {{
                                     Form::submit(
                                         'Delete',
-                                        array('class' => 'btn btn-danger', 'data-method' => 'delete', 'data-confirm' => 'Are you sure you want to delete this post?')
+                                        array('class' => 'btn btn-danger', 'data-method' => 'delete', 'data-confirm' => 'Are you sure you want to delete this project?')
                                     )
                                 }}
                             {{ Form::close() }}

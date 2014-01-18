@@ -92,6 +92,6 @@ class ProjectController extends FrontController
         header('Content-Length: '.filesize($download));
         readfile($download);
         
-        return Redirect::to(route('project.release.show', array($c_link, $p_link, $release)))->with('success', 'File is now downloading!');
+        return Redirect::to(route('project.release.show', array($c_link, $p_link, $release)));
     }
 }
