@@ -2,6 +2,15 @@
 
 class ACategoryController extends AdminController
 {
+    private $bag;
+    
+    public function __construct()
+    {
+        $this->bag = array(
+            'type' => Lang::choice('type.category', 1)
+        );
+    }
+    
     function index()
     {
         $c = Category::where('id', '>', 0)->get();
@@ -23,11 +32,11 @@ class ACategoryController extends AdminController
         $c = Category::find($id);
         
         if(!$c)
-            return Redirect::to(route('admin.category.index'))->withErrors(array('errors' => 'Category not found!'));
+            return Redirect::to(route('admin.category.index'))->withErrors(trans('error.notfound', $this->bag));
         
         $c->update(Input::all());
         
-        return Redirect::to(route('admin.category.index'))->with('success', 'Category updated!');
+        return Redirect::to(route('admin.category.index'))->with('success', trans('message.updated', $this->bag));
     }
     
     function store()
@@ -39,7 +48,7 @@ class ACategoryController extends AdminController
         
         Category::create(Input::all());
         
-        return Redirect::to(route('admin.category.index'))->with('success', 'Category created!');
+        return Redirect::to(route('admin.category.index'))->with('success', trans('message.created', $this->bag));
     }
     
     function destroy($id)
@@ -49,6 +58,6 @@ class ACategoryController extends AdminController
         if($c)
             $c->Delete();
         
-        return Redirect::to(route('admin.category.index'))->with('success', 'Category deleted!');
+        return Redirect::to(route('admin.category.index'))->with('success', trans('message.deleted', $this->bag));
     }
 }

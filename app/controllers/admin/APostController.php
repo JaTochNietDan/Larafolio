@@ -2,6 +2,15 @@
 
 class APostController extends AdminController
 {
+    private $bag;
+    
+    public function __construct()
+    {
+        $this->bag = array(
+            'type' => Lang::choice('type.post', 1)
+        );
+    }
+    
     function index()
     {
         $posts = Post::take(Cache::get('posts-page'))->orderBy('created_at', 'desc')->get();
@@ -19,7 +28,7 @@ class APostController extends AdminController
         {
             $p->Delete();
             
-            return Redirect::to(route('admin.post.index'))->with('success', 'Post deleted!');
+            return Redirect::to(route('admin.post.index'))->with('success', trans('message.deleted', $this->bag));
         }
     }
     
@@ -40,7 +49,7 @@ class APostController extends AdminController
         
         $p = Post::create($data);
         
-        return Redirect::to(route('admin.post.index'))->with('success', 'Post created!');
+        return Redirect::to(route('admin.post.index'))->with('success', trans('message.created', $this->bag));
     }
     
     function edit($id)
@@ -48,7 +57,7 @@ class APostController extends AdminController
         $p = Post::find($id);
         
         if(!$p)
-            return Redirect::to(route('admin.post.index'))->withErrors(array('errors' => 'Post not found!'));
+            return Redirect::to(route('admin.post.index'))->withErrors(trans('error.notfound', $this->bag));
         
         $data = array(
             'post' => $p  
@@ -67,13 +76,13 @@ class APostController extends AdminController
         $p = Post::find($id);
         
         if(!$p)
-            return Redirect::to(route('admin.post.index'))->withErrors(array('errors' => 'Post not found!'));
+            return Redirect::to(route('admin.post.index'))->withErrors(trans('error.notfound', $this->bag));
         
         $data = Input::except('published');
         $data['published'] = Input::get('published', 0);
         
         $p->update($data);
         
-        return Redirect::to(route('admin.post.index'))->with('success', 'Post saved!');
+        return Redirect::to(route('admin.post.index'))->with('success', trans('message.updated', $this->bag));
     }
 }

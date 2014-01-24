@@ -2,6 +2,15 @@
 
 class APageController extends AdminController
 {
+    private $bag;
+    
+    public function __construct()
+    {
+        $this->bag = array(
+            'type' => Lang::choice('type.page', 1)
+        );
+    }
+    
     function index()
     {
         $p = Page::all();
@@ -27,7 +36,7 @@ class APageController extends AdminController
         
         Page::create(Input::all());
         
-        return Redirect::to(route('admin.page.index'))->with('success', 'Page created!');
+        return Redirect::to(route('admin.page.index'))->with('success', trans('message.created', $this->bag));
     }
     
     function edit($id)
@@ -35,7 +44,7 @@ class APageController extends AdminController
         $p = Page::find($id);
         
         if(!$p)
-            return Redirect::to(route('admin.page.index'))->withErrors(array('errors' => 'Page not found!'));
+            return Redirect::to(route('admin.page.index'))->withErrors(trans('error.notfound', $this->bag));
         
         $this->layout->content = View::make('admin.page.edit', array('page' => $p));
     }
@@ -45,7 +54,7 @@ class APageController extends AdminController
         $p = Page::find($id);
         
         if(!$p)
-            return Redirect::to(route('admin.page.index'))->withErrors(array('errors' => 'Page not found!'));
+            return Redirect::to(route('admin.page.index'))->withErrors(trans('error.notfound', $this->bag));
         
         $v = Validator::make(Input::all(), Page::update_rules($id));
         
@@ -54,7 +63,7 @@ class APageController extends AdminController
         
         $p->update(Input::all());
         
-        return Redirect::to(route('admin.page.index'))->with('success', 'Page saved!');
+        return Redirect::to(route('admin.page.index'))->with('success', trans('message.updated', $this->bag));
     }
     
     function destroy($id)
@@ -64,6 +73,6 @@ class APageController extends AdminController
         if($p)
             $p->delete();
             
-        return Redirect::to(route('admin.page.index'))->with('success', 'Page deleted!');
+        return Redirect::to(route('admin.page.index'))->with('success', trans('message.deleted', $this->bag));
     }
 }
