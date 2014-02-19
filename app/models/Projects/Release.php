@@ -11,6 +11,11 @@ class Release extends Eloquent
     {
         return $this->hasMany('Upload');
     }
+	
+	public function downloads()
+	{
+		return $this->hasMany('Download');
+	}
     
 	protected $table = 'releases';
 	

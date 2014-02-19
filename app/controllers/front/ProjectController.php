@@ -80,6 +80,7 @@ class ProjectController extends FrontController
         }
         
         $p->increment('downloads');
+        $r->downloads()->create(array('ip' => Request::getClientIp()));
         
         while (@ob_end_flush());
         
