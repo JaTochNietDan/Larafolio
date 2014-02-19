@@ -12,14 +12,14 @@ class CreateDownloadsTable extends Migration
             $t->string('ip')->length(16);
             
             $t->timestamps();
+
+            $t->integer('upload_id')->unsigned()->default(0);
+              
+            $t->index('upload_id');
             
-            $t->integer('release_id')->unsigned()->default(0);
-			
-			$t->index('release_id');
-            
-            $t->foreign('release_id')
+            $t->foreign('upload_id')
 			  ->references('id')
-			  ->on('releases');
+			  ->on('uploads');
         });
 	}
     

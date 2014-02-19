@@ -8,7 +8,7 @@
     
         <div class="panel-body">
             <b>Latest Release: </b>{{ $latest ? '<a class="releasenav" href="'.route('project.release.show', array($project->category->link, $project->link, $latest->name)).'">'.$latest->name.'</a>' : 'None' }}<br />
-            <b>Downloads: </b>{{ number_format($project->downloads) }}
+            <b>Downloads: </b>{{ number_format($project->downloads) }}<br />
         </div>
     </div>
     @if($latest && count($latest->files) > 0)

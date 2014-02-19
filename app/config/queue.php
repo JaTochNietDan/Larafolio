@@ -16,6 +16,10 @@ return array(
 	*/
 
 	'default' => 'sync',
+    
+    'failed' => array(
+        'database' => 'mysql', 'table' => 'failed_jobs',
+    ),
 
 	/*
 	|--------------------------------------------------------------------------

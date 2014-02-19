@@ -5,8 +5,8 @@ class Download extends Eloquent
     protected $table = 'downloads';
     protected $fillable = array('ip');
     
-    public function release()
+    public function file()
     {
-        return $this->belongsTo('Release');
+        return $this->belongsTo('Upload');
     }
 }

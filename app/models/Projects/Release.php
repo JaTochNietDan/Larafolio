@@ -14,7 +14,7 @@ class Release extends Eloquent
 	
 	public function downloads()
 	{
-		return $this->hasMany('Download');
+		return $this->hasManyThrough('Download', 'Upload');
 	}
     
 	protected $table = 'releases';
