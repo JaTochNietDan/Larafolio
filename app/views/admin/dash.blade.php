@@ -1,17 +1,16 @@
 @section('content')
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-5">
         <div class="box inverse">
             <header>
                 <div class="icons">
-                    <i class="fa fa-flag"></i>
+                    <i class="fa fa-download"></i>
                 </div>
                 <h5>Downloads over the last 24 hours</h5>
             </header>
             <div class="body">
-                <div class="row" style="margin-bottom: 10px;">
-                    
-                    <div class="col-lg-3">
+                <div class="row" style="margin-bottom: 10px;"> 
+                    <div class="col-lg-12">
                         {{ Form::open(array('route' => 'admin.dash.post', 'class' => 'form-inline')) }}
                         <div class="form-group">
                             <select name="time" class="form-control">
