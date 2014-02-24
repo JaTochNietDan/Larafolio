@@ -7,6 +7,6 @@ class Download extends Eloquent
     
     public function file()
     {
-        return $this->belongsTo('Upload');
+        return $this->belongsTo('Upload', 'upload_id');
     }
 }

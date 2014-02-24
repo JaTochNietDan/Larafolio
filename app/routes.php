@@ -42,6 +42,7 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'LoginController@logout')
 Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 {
     Route::get('', 'AdminController@dash');
+    Route::post('', array('uses' => 'AdminController@dash', 'as' => 'admin.dash.post'));
     
     Route::resource('post', 'APostController', array('except' => array('show')));
     Route::resource('category', 'ACategoryController', array('except' => array('show', 'edit', 'create')));

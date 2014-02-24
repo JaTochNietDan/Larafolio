@@ -17,11 +17,15 @@ class AdminController extends Controller
 		}
 	}
 	
-	function dash()
+	function dash($time = 'today')
 	{
-		$downloads = Download::where('created_at', '>=', new DateTime('today'))->get();
+		if(Input::has('time'))
+			$time = Input::get('time');
+		
+		$downloads = Download::where('created_at', '>=', new DateTime($time))->get();
 		
 		$countries = array();
+		$projects = array();
 		
 		foreach($downloads as $d)
 		{
@@ -31,10 +35,16 @@ class AdminController extends Controller
 				$countries[$location['country']] = 1;
 			else
 				$countries[$location['country']]++;
+				
+			if(!isset($projects[$d->file->release->project->title]))
+				$projects[$d->file->release->project->title] = 1;
+			else
+				$projects[$d->file->release->project->title]++;
 		}
 		
 		arsort($countries);
+		arsort($projects);
 		
-		$this->layout->content = View::make('admin.dash', array('countries' => $countries));
+		$this->layout->content = View::make('admin.dash', array('countries' => $countries, 'projects' => $projects));
 	}
 }
