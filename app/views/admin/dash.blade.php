@@ -10,18 +10,24 @@
             </header>
             <div class="body">
                 <div class="row" style="margin-bottom: 10px;">
-                    {{ Form::open(array('route' => 'admin.dash.post')) }}
+                    
                     <div class="col-lg-3">
-                        <select name="time" class="form-control">
-                            <option value="today"{{ Input::get('time') == 'today' ? ' selected' : '' }}>Today</option>
-                            <option value="first day of this month"{{ Input::get('time') == 'first day of this month' ? ' selected' : '' }}>This Month</option>
-                            <option value="first day of this year"{{ Input::get('time') == 'first day of this year' ? ' selected' : '' }}>This Year</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-2">
-                        <input type="submit" value="Filter" class="btn btn-info" />
-                    </div>
-                    {{ Form::close() }}     
+                        {{ Form::open(array('route' => 'admin.dash.post', 'class' => 'form-inline')) }}
+                        <div class="form-group">
+                            <select name="time" class="form-control">
+                                <option value="today"{{ Input::get('time') == 'today' ? ' selected' : '' }}>Today</option>
+                                <option value="first day of this month"{{ Input::get('time') == 'first day of this month' ? ' selected' : '' }}>This Month</option>
+                                <option value="first day of this year"{{ Input::get('time') == 'first day of this year' ? ' selected' : '' }}>This Year</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="unique"{{ Input::get('unique') ? ' checked' : '' }}> Unique (by IP)
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Filter" class="btn btn-info" />
+                        </div>
+                        {{ Form::close() }}
+                    </div> 
                 </div>
                 <div class="row">
                     <div class="col-lg-6">

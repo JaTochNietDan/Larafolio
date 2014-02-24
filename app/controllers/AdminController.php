@@ -22,7 +22,10 @@ class AdminController extends Controller
 		if(Input::has('time'))
 			$time = Input::get('time');
 		
-		$downloads = Download::where('created_at', '>=', new DateTime($time))->get();
+		if(Input::get('unique'))
+			$downloads = Download::where('created_at', '>=', new DateTime($time))->groupBy('ip')->get();
+		else
+			$downloads = Download::where('created_at', '>=', new DateTime($time))->get();
 		
 		$countries = array();
 		$projects = array();
