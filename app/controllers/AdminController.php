@@ -37,9 +37,9 @@ class AdminController extends Controller
 				$countries[$location['country']]++;
 				
 			if(!isset($projects[$d->file->release->project->title]))
-				$projects[$d->file->release->project->title] = 1;
+				$projects[$d->file->release->project->title] = array('d' => $d, 'total' => 1);
 			else
-				$projects[$d->file->release->project->title]++;
+				$projects[$d->file->release->project->title]['total']++;
 		}
 		
 		arsort($countries);

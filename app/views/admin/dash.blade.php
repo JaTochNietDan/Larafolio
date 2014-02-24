@@ -51,10 +51,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($projects as $name => $downloads)
+                                @foreach($projects as $name => $download)
                                     <tr>
-                                        <td>{{ $name }}</td>
-                                        <td>{{ $downloads }}</td>
+                                        <td>
+                                            <a target="_blank" href="{{ route('project', array($download['d']->file->release->project->category->link, $download['d']->file->release->project->link)) }}">
+                                                {{ $name }}
+                                            </a>
+                                        </td>
+                                        <td>{{ $download['total'] }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
