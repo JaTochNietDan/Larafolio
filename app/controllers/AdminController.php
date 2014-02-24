@@ -43,7 +43,11 @@ class AdminController extends Controller
 		}
 		
 		arsort($countries);
-		arsort($projects);
+		
+		usort($projects, function($a, $b)
+		{
+			return $b['total'] - $a['total'];
+		});
 		
 		$this->layout->content = View::make('admin.dash', array('countries' => $countries, 'projects' => $projects));
 	}
