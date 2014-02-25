@@ -21,14 +21,10 @@ class Upload extends Eloquent
 	
 	public function download_count()
 	{
-		number_format(
+		return number_format(
 			$this->join('downloads', 'downloads.upload_id', '=', 'uploads.id')
 			->where('uploads.id', '=', $this->id)
 			->count('downloads.id'));
-		
-		$queries = DB::getQueryLog();
-		
-		return $queries;
 	}
 	
     protected $table = 'uploads';
