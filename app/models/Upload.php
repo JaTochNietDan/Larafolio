@@ -19,5 +19,12 @@ class Upload extends Eloquent
 		return parent::delete();
 	}
 	
+	public function download_count()
+	{
+		return number_format(
+			$this->join('downloads', 'downloads.upload_id', '=', 'uploads.id')
+			->count());
+	}
+	
     protected $table = 'uploads';
 }

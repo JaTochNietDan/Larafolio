@@ -20,7 +20,7 @@
         
             <div class="panel-body">
                 @foreach($latest->files as $file)
-                    <a href="{{ route('project.release.download', array($project->category->link, $project->link, $latest->name, $file->id)) }}" class="btn btn-success">
+                    <a title="Downloaded {{ $file->download_count() }} times" href="{{ route('project.release.download', array($project->category->link, $project->link, $latest->name, $file->id)) }}" class="btn btn-success">
                         {{ $file->name }}
                     </a>
                 @endforeach
@@ -77,7 +77,7 @@
                     <hr>
                     <h4>Downloads</h4>
                     @foreach($view_release->files as $file)
-                        <a href="{{ route('project.release.download', array($project->category->link, $project->link, $view_release->name, $file->id)) }}" class="btn btn-success">
+                        <a title="Downloaded {{ $file->download_count() }} times" href="{{ route('project.release.download', array($project->category->link, $project->link, $view_release->name, $file->id)) }}" class="btn btn-success">
                             {{ $file->name }}
                         </a>
                     @endforeach
