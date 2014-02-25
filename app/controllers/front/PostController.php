@@ -5,13 +5,18 @@ class PostController extends FrontController
     function index($c = null)
     {
         if($c)
-            $posts = $c->posts()->take(Cache::get('posts-page'))->where('published', '!=', 0)->orderBy('created_at', 'desc')->get();
+            $posts = $c->posts()->where('published', '!=', 0)->orderBy('created_at', 'desc')->paginate(10);
         else
-            $posts = Post::take(Cache::get('posts-page'))->where('published', '!=', 0)->orderBy('created_at', 'desc')->get();
+            $posts = Post::where('published', '!=', 0)->orderBy('created_at', 'desc')->paginate(10);
         
         $data = array('posts' => $posts, 'category' => $c);
         
         $this->layout->content = View::make('front/posts/index', $data);
+    }
+    
+    function page($page)
+    {
+    
     }
     
     function show($category_link, $post_link)

@@ -22,6 +22,7 @@
         </div>
     </div>
     @endforeach
+    {{ $posts->links('front.posts.page') }}
 @endif
 </div>
 @stop
