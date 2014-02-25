@@ -23,7 +23,7 @@ class Upload extends Eloquent
 	{
 		return number_format(
 			$this->join('downloads', 'downloads.upload_id', '=', 'uploads.id')
-			->count());
+			->count('downloads.id'));
 	}
 	
     protected $table = 'uploads';
