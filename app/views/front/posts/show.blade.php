@@ -45,6 +45,10 @@
     {{ $post->title }}
 @stop
 
+@section('description')
+{{ $post->excerpt }}
+@stop
+
 @section('breadcrumb')
     <li><a href="{{ route('blog') }}">Blog</a></li>
     <li><a href="{{ route('blog.category', $post->category->link) }}">{{ $post->category->title }}</a></li>

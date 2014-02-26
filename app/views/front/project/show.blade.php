@@ -128,7 +128,11 @@
 @stop
 
 @section('title')
-    {{ $project->title }}
+    {{ $project->title }} v{{ $view_release ? $view_release->name : $latest->name }}
+@stop
+
+@section('description')
+{{ $project->excerpt }}
 @stop
 
 @section('scripts')

@@ -32,3 +32,10 @@
 @section('breadcrumb')
     <li class="active">Project</li>
 @stop
+
+@section('title')
+    {{ Cache::get('site-title') }} - Projects
+@stop
+
+@section('description')
+Projects I've worked on and released to the public.@stop

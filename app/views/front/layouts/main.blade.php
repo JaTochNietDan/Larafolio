@@ -7,6 +7,7 @@
 		
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="@yield('description', 'JaTochNietDan\'s personal website containing his projects and blog posts.')">
 			
         <link href="/front/css/bootstrap-alt.css" rel="stylesheet">
 		<link href="/front/css/monokai_sublime.css" rel="stylesheet">
@@ -28,8 +29,8 @@
 					</div>
 					<div class="navbar-collapse collapse" id="navbar-main">
 						<ul class="nav navbar-nav">
-						@include('front.layouts.menu')
-						</ul>			
+							@include('front.layouts.menu')
+						</ul>
 					</div>
 				</div>
 			</div>

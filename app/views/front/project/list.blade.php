@@ -33,3 +33,10 @@
     <li><a href="{{ route('project.index') }}">Project</a></li>
     <li class="active">{{ $category->title }}</li>
 @stop
+
+@section('title')
+    {{ Cache::get('site-title') }} - {{ $category->title }} Projects
+@stop
+
+@section('description')
+Projects I've worked on and released to the public.@stop

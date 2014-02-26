@@ -28,11 +28,6 @@ body {
   /* filter: none; */
 }
 
-input
-{
-  height: 30px !important;
-}
-
 #wrap > .container {
   padding-top: 60px;
 }
