@@ -16,4 +16,9 @@ class FrontController extends Controller
 	{
 		$this->layout->content = View::make('admin.login');
 	}
+	
+	function search()
+	{
+		$this->layout->content = View::make('front.search');
+	}
 }

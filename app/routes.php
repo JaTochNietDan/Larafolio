@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PostController@index');
+Route::get('search', array('uses' => 'FrontController@search', 'as' => 'search'));
 
 Route::group(array('prefix' => 'blog'), function()
 {
