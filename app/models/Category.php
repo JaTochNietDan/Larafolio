@@ -8,7 +8,7 @@ class Category extends Eloquent
 		
 		Category::creating(function($c)
 		{
-			$c->link = strtolower(str_replace(' ', '-', $c->title));
+			$c->link = Str::slug($c->title);
 		});
     }
 	

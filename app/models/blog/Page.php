@@ -8,7 +8,7 @@ class Page extends Eloquent
 		
 		Page::creating(function($p)
 		{
-			$p->link = strtolower(str_replace(' ', '-', $p->title));
+			$p->link = Str::slug($p->title);
 		});
     }
     

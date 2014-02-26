@@ -8,7 +8,7 @@ class Project extends Eloquent
 		
 		Project::creating(function($p)
 		{
-			$p->link = strtolower(str_replace(' ', '-', $p->title));
+			$p->link = Str::slug($p->title);
 		});
 	}
 	

@@ -8,7 +8,7 @@ class Post extends Eloquent
 		
 		Post::creating(function($p)
 		{
-			$p->link = strtolower(str_replace(' ', '-', $p->title));
+			$p->link = Str::slug($p->title);
 		});
 		
 		Post::saving(function($p)
