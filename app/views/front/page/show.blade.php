@@ -16,3 +16,7 @@
 @section('breadcrumb')
     <li class="active">Viewing page: {{ $page->title }}</li>
 @stop
+
+@section('title')
+    {{ Cache::get('site-title') }} - {{ $page->title }}
+@stop

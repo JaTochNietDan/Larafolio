@@ -35,3 +35,7 @@
         <li class="active">Blog</li>
     @endif
 @stop
+
+@section('title')
+    {{ Cache::get('site-title') }} - Blog{{ !empty($category) ? ' -> '.$category->title : '' }} (page {{ $posts->getCurrentPage() }})
+@stop
