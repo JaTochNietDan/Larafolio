@@ -1,6 +1,6 @@
 @section('content')
 <div class="row">
-    <div class="col-lg-5">
+    <div class="col-lg-6">
         <div class="box inverse">
             <header>
                 <div class="icons">
