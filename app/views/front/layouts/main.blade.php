@@ -9,7 +9,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="@yield('description', 'JaTochNietDan\'s personal website containing his projects and blog posts.')">
 			
-        {{ Minify::stylesheet(["/front/css/bootstrap-alt.css", "/front/css/monokai_sublime.css", "/front/css/navbar.css"]) }}
+		<link href="/front/css/bootstrap-alt.css" rel="stylesheet">	
+        {{ Minify::stylesheet(["/front/css/monokai_sublime.css", "/front/css/navbar.css"]) }}
 		@yield('styles')
 		{{ Cache::get('analytics') }}
     </head>
