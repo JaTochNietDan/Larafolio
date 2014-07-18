@@ -9,9 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="@yield('description', 'JaTochNietDan\'s personal website containing his projects and blog posts.')">
 			
-        <link href="/front/css/bootstrap-alt.css" rel="stylesheet">
-		<link href="/front/css/monokai_sublime.css" rel="stylesheet">
-        <link href="/front/css/navbar.css" rel="stylesheet">
+        {{ Minify::stylesheet(["/front/css/bootstrap-alt.css", "/front/css/monokai_sublime.css", "/front/css/navbar.css"]) }}
 		@yield('styles')
 		{{ Cache::get('analytics') }}
     </head>
@@ -57,9 +55,7 @@
 				<p class="muted credit">{{ Cache::get('footer', 'Footer goes here.') }}</p>
 			</div>
 		</div>
-		<script type="text/javascript" src="/back/js/jquery.js"></script>
-		<script type="text/javascript" src="/front/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="/front/js/highlight.pack.js"></script>
+		{{ Minify::javascript(["/back/js/jquery.js", "/front/js/bootstrap.min.js", "/front/js/highlight.pack.js"]) }}
 		<script>hljs.initHighlightingOnLoad();</script>
 		@yield('scripts')
     </body>

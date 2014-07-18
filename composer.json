@@ -5,7 +5,10 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"torann/geoip": "dev-master"
+		"torann/geoip": "dev-master",
+		"ceesvanegmond/minify": "2.0.*",
+		"fitztrev/laravel-html-minify": "1.*",
+		"barryvdh/laravel-debugbar": "1.*"
 	},
 	"autoload": {
 		"classmap": [
